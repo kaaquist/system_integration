@@ -1,0 +1,10 @@
+The txt file has to include these three lines, like so:
+ 
+Class:
+Responsibility:
+Collaboration:
+
+Add responsibilities and collaborations to the lines, separating each "event/action" 
+using this delimiter ; (semicolon).
+
+After the file is done it is then possible to generate a tex file using the crc_to_tex.py

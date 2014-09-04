@@ -1,0 +1,31 @@
+!contents -R2 -g -p -f -h
+
+Use case "Check-in Tag" success scenario
+
+!|ActionFixture                          |
+|start|Driver                          |
+|check|Tag Recognized    | true         |
+|check|Check-in created  | true         |
+|check|Barrier Open  | true |
+
+Use case "Check-in Tag" Tag not recognized scenario
+
+!|ActionFixture                          |
+|start|Driver                          |
+|check|Tag Recognized    | false         |
+|press|Notify Cashier        |
+|check|Problem Resolved | true |
+|check|Barrier Open  | true |
+
+Use case "Check-in Tag" Check-in failure scenario
+
+!|ActionFixture                          |
+|start|Driver                          |
+|check|Tag Recognized    | true         |
+|check|Check-in created | false | 
+|press|Notify Cashier        |
+|check|Problem Resolved | true |
+|check|Barrier Open  | true |
+
+
+

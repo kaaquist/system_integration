@@ -1,0 +1,66 @@
+\begin{usecase}
+
+\addtitle{Use Case 3}{Offer Trade} 
+
+%Scope: the system under design
+%\addfield{Scope:}{System-wide}
+
+%Level: "user-goal" or "subfunction"
+\addfield{Description:}{A player wants to offer a trade from his character to another character.}
+
+%Primary Actor: Calls on the system to deliver its services.
+\addfield{Actor:}{Player1, Player2}
+
+%Stakeholders and Interests: Who cares about this use case and what do they want?
+%\additemizedfield{Stakeholders and Interests:}{
+%	\item Stakeholder 1 name: his interests
+%	\item Stakeholder 2 name: his interests
+%}
+
+%Preconditions: What must be true on start and worth telling the reader?
+\addfield{Preconditions:}{Player1 and Player2 have to have joined the same game, and both of their characters have to be in the same room.}
+%when multiple
+%\additemizedfield{Preconditions:}{} 
+
+%Main Success Scenario: A typical, unconditional happy path scenario of success.
+\addscenario{Main Scenario:}{
+	\item Player1 offers a trade with another character in the room, by choosing a desired item to trade with from his own characters inventory.
+	\item Player2 who gets the offer confirms the trade and chooses an item from his characters inventory to trade with.
+	\item Player1 confirms the offer.
+	\item The trade is done.
+}
+
+%Extensions: Alternate scenarios of success or failure.
+\addscenario{Alternative Scenario:}{
+	\item[2.a] Player2 declines the offer:
+		\begin{enumerate}
+		\item[1.] Player1 is shown the decline message from Player2.
+		\item[2.] Player1 returns to step 1 and can choose to offer a different trade.
+		\end{enumerate}
+	\item[3.a] Player1 declines the counter offer:
+		\begin{enumerate}
+		\item[1.] System offers a text field to Player1 where he can type a message to Player2 to let him know the offers has been declined.
+		\item[2.] Player1 retry step 1.
+		\end{enumerate}	
+}
+
+%Special Requirements: Related non-functional requirements.
+%\additemizedfield{Special Requirements:}{
+%	\item first applicable non-functional requirement
+%	\item second applicable non-functional requirement
+%}
+
+%Postconditions: What must be true on successful completion and worth telling the reader
+\addfield{Postconditions:}{The players have successfully completed an item trade.}
+%when multiple
+%\additemizedfield{Preconditions:}{}
+
+
+%Frequency of Occurrence: Influences investigation, testing and timing of implementation.
+\addfield{Notes:}{}
+
+%Miscellaneous: Such as open issues/questions
+%\addfield{Open Issues:}{}
+
+\end{usecase}
+

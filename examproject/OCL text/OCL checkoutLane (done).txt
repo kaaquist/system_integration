@@ -1,0 +1,8 @@
+Check-out Lane
+	ticketRead ---> {post: if verifyTicket(ticket) then 
+						   barrier^openBarrier() and checkOutAdded(checkOuts@pre, checkOuts)
+						   else station^notifyCashier()
+					 def: checkOutAdded(c1,c2 : Sequence(Check-Out)) = 
+						  c2->includes(c1) and c2->size() = c1->size()+1
+						  }
+	verifyTicket ---> {query}

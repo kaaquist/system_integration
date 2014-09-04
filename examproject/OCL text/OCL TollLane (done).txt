@@ -1,0 +1,6 @@
+TollLane
+	logIn ---> {pre: not (loggedIn)
+				post: loggedIn}
+	logOut --->{pre: loggedIn
+				post: not(loggedIn)}
+	

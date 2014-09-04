@@ -1,0 +1,58 @@
+\section{Functional Requirements}
+In this section, we provide an overview of the functional requirements for the system. We first show a series of use case diagrams where use cases are grouped with similar use cases. Afterwards we provide three detailed use cases.
+
+\subsection{Use Case Diagrams}
+
+\subsubsection*{Inventory Management}
+Fig. \ref{fig:inventory-management} depicts the Use Cases that the player can do with his inventory/item management. He will at all times be able to pickup any item that might be in the room, or look at his inventory. However in order to drop or trade any items, he must first see his inventory. 
+
+\begin{myfigure}{Inventory_Management}{.8}%
+	\caption{Inventory Management}
+	\label{fig:inventory-management}
+\end{myfigure}
+
+\subsubsection*{Room Management}
+The player has three basic Use Cases that he might execute while being in a room, i.e. Move to Room next to the current one, Look at Room to see what items are located in the room or Speak to whoever might be located in the room. We have one special Use Case as seen in \ref{fig:room-management}, namely Complete Level, which will be executed by the game itself, whenever the player enters the last room in the level. 
+
+\begin{myfigure}{Room_Management}{.9}%
+	\caption{Room Management}
+	\label{fig:room-management}
+\end{myfigure}
+
+\subsubsection*{Trade Management}
+Whenever the player decides to Trade Item, he can make an offer to another Player by using the Offer Trade option, which enables him to trade any items he has achieve during the game. Whenever a Trade has been offered, the other Player has the option to either Accept,  Decline or make a counter offer. 
+
+\begin{myfigure}{Trade_Management}{.9}%
+	\caption{Trade Management}
+	\label{fig:trade-management}
+\end{myfigure}
+
+\subsubsection*{Character Management}
+With respect to Character Management, as seen in fig. \ref{fig:character-management}, we have given the Player the possibility of performing typical CRUD operations on a characters, where Read, Update and Delete all depends on the Player having previously created a character. 
+
+\begin{myfigure}{Character_Management}{.9}%
+	\caption{Character Management}
+	\label{fig:character-management}
+\end{myfigure}
+
+\subsubsection*{Access Management}
+For Access Management, we have that all Use Cases rely on the Player gaining access to the Server, by using a Logon Server, which in turn will make the server Authenticate the Player. When logged on, it is possible for the Player to Join Game, which will join an ongoing game, or Logoff Server. The Leave Game is only enabled when the Player has joined an ongoing game, and decides to leave. The Player can also leave a game, by logging off the server at any time. 
+
+\begin{myfigure}{Access_Management}{.9}%
+	\caption{Access Management}
+	\label{fig:access-management}
+\end{myfigure}
+
+\newpage
+\subsection{Detailed Use Cases}
+\label{sec:detailedusecases}
+The following subsection will give a detailed description of the three Use Cases: \textbf{Create Character}, \textbf{Delete Character} and \textbf{Offer Trade}.
+
+
+\subimport{usecase/}{create_character}
+
+\newpage
+\subimport{usecase/}{delete_character}
+
+\newpage
+\subimport{usecase/}{offer_trade}

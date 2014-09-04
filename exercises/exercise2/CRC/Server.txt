@@ -1,0 +1,3 @@
+Class: Server
+Responsibility: Authenticate Player; Create Player; Registered Games[]; Create New Game; Give List Of Active Games
+Collaboration: Game

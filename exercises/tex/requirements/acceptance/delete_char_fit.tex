@@ -1,0 +1,52 @@
+
+\noindent Use case "Delete Character" success scenario
+
+\vspace{0.4cm}
+\begin{tabular}{| p{2cm} | p{5.5cm} | p{5.5cm} |} \hline
+\multicolumn{3}{|l|}{ActionFixture} \\ \hline
+start & Player &  \\ \hline
+enter & character name & Marnizzle \\ \hline
+enter & password & Fisk1234 \\ \hline
+press & confirm &  \\ \hline
+check & error message &  \\ \hline
+\end{tabular}
+\vspace{0.8cm}
+
+\noindent Alternative scenario 1a: Invalid character name
+
+\vspace{0.4cm}
+\begin{tabular}{| p{2cm} | p{5.5cm} | p{5.5cm} |} \hline
+\multicolumn{3}{|l|}{ActionFixture} \\ \hline
+start & Player &  \\ \hline
+enter & character name & Marnizzlee \\ \hline
+enter & password & Fisk1234 \\ \hline
+press & confirm &  \\ \hline
+check & error message & Character name does not exist \\ \hline
+\end{tabular}
+\vspace{0.8cm}
+
+\noindent Alternative scenario 2a: Wrong password provided
+
+\vspace{0.4cm}
+\begin{tabular}{| p{2cm} | p{5.5cm} | p{5.5cm} |} \hline
+\multicolumn{3}{|l|}{ActionFixture} \\ \hline
+start & Player &  \\ \hline
+enter & character name & Marnizzle \\ \hline
+enter & password & Fisk123 \\ \hline
+press & confirm &  \\ \hline
+check & error message & Wrong password provided for the character \\ \hline
+\end{tabular}
+\vspace{0.8cm}
+
+\noindent Alternative scenario 2a: Wrong password provided - three times
+
+\vspace{0.4cm}
+\begin{tabular}{| p{2cm} | p{5.5cm} | p{5.5cm} |} \hline
+\multicolumn{3}{|l|}{ActionFixture} \\ \hline
+start & Player &  \\ \hline
+enter & character name & Marnizzle \\ \hline
+enter & password & Fisk123 \\ \hline
+press & confirm &  \\ \hline
+check & error message & Wrong password provided for character. This action has been tried three times \\ \hline
+\end{tabular}
+\vspace{0.8cm}

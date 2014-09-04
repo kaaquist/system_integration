@@ -1,0 +1,28 @@
+\section{Domain Analysis}
+In this section we provide a glossary of important terms in the domain along with descriptions of the individual terms. We provide a class diagram showing a model of the domain and finally we provide acceptance tests for the system.
+
+\subimport{}{glossary}
+
+\subsection{Domain model}
+\madeby{\kj}{\mt}
+The Toll System is composed of one single Enterprise Server that is the core of the system, which has access to several Stations that is placed throughout the motorway that we monitor. It will also contain all Toll Tags registered in the Toll System, which enables a Driver to ease his registration when he wishes to use the motorway. The Toll Tag will contain what vehicle is assigned to it, as well as what Trips it has taken on the motorway, identified by what stations the Trip started and ended on. 
+
+The Stations which is contained within the system, has knowledge of several local Toll Lanes, that allow Drivers to pass onto or exit the motorway. These Toll Lanes can take on two roles, either they are Express Lanes, only accepting Toll Tags, or they are a Normal Lane accepting credit cards or cash in case a Cashier is assigned to the Toll Lane. The Toll Lanes will likewise have knowledge of when a Lane Pass has occurred, i.e. when a driver either enter or exit the motorway, and how it was performed, with a Ticket or with the use of a Toll Tag. 
+
+An illustration of these ideas has been comprised into the Domain Model seen in Figure \ref{fig:domainmodel}
+
+\begin{myfigure}{Class_Diagram/Domain_Diagram}{1}
+\caption{Domain model of the Toll System. \madeby{\jb}{\mt}}
+\label{fig:domainmodel}
+\end{myfigure}
+
+\subsubsection{System Users}
+\madeby{\mb}{\af}
+If we look into which users the Toll System will encounter during runtime, we have two distinct groups, the Drivers which are the users that will use the motorway and thereby pay for the maintenance cost of the Toll System. Beside the Drivers, we have the Employees, which can be simple cashiers that can handle a single Toll Lane on the Station at a time. Another type of employee, are the Managers that will be able to generate reports, change the price for travelling etc. The Station Manager, responsible for a single Station can only generate report, whereas the Enterprise Manager is a specialization of the Station Manager, and has full access to all task a manager can do. The Toll System in itself will only contains a single Enterprise Manager. An overview of the taxonomy for the System Users can be seen in Figure \ref{fig:system_users}.
+
+\begin{myfigure}{Class_Diagram/Systems_Users}{0.4}
+\caption{Systems Users. \madeby{\kj}{\jb}}
+\label{fig:system_users}
+
+\end{myfigure}
+

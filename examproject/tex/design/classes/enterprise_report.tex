@@ -1,0 +1,36 @@
+\begin{table}[H]
+
+\resizebox{\textwidth}{!} {
+
+\begin{tabular}{| l | l | l | l |}
+\hline
+\multicolumn{4}{| l |}{\textbf{EnterpriseReport}} \\ \hline
+\multicolumn{4}{| p{\textwidth} |}{A report containing all relevant information needed from all stations contained within the system}  \\
+
+
+
+\hhline{====}
+\textbf{Interaction} & \textbf{Class}  & \multicolumn{2}{ p{0.65\textwidth} |}{\textbf{Description}} \\ \hline
+ reports  & LanePass & \multicolumn{2}{p{0.65\textwidth} |}{A map to all stations that we received an answer from while requesting a StationReport. For each station we have all LanePass made on that station for the requested period} \\ \hline 
+ failedStations  & Station & \multicolumn{2}{p{0.65\textwidth} |}{All stations which communication could not be established} \\ \hline 
+% {Interaction}  & {Class} & \multicolumn{2}{p{0.65\textwidth} |}{Description} \\ \hline 
+% {Interaction}  & {Class} & \multicolumn{2}{p{0.65\textwidth} |}{Description} \\ \hline 
+% {Interaction}  & {Class} & \multicolumn{2}{p{0.65\textwidth} |}{Description} \\ \hline 
+% {Interaction}  & {Class} & \multicolumn{2}{p{0.65\textwidth} |}{Description} \\ 
+
+\hhline{====}
+\textbf{Operation} & \textbf{In} & \textbf{Out} & \textbf{Description} \\ \hline
+
+addStation  & Station,StationReport   &    & \multicolumn{1}{p{0.55\textwidth} |}{Adds a station report to the given station} \\ \hline
+getStation  &    & Station[*]   & \multicolumn{1}{p{0.55\textwidth} |}{Returns all stations that is contained in the system with their corresponding report, or if the communication failed} \\ \hline
+addFailedStation  & Station   &    & \multicolumn{1}{p{0.55\textwidth} |}{Adds a station that communication couldn't be established with} \\ \hline
+%{Operation}  & {IN}   & {OUT}   & \multicolumn{1}{p{0.55\textwidth} |}{Description} \\ \hline
+%{Operation}  & {IN}   & {OUT}   & \multicolumn{1}{p{0.55\textwidth} |}{Description} \\ \hline
+
+\end{tabular}
+}
+\caption{Description of class EnterpriseReport
+ \madeby{\af}{\mt}}
+\label{tab:enterprisereport_class}
+
+\end{table}

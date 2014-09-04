@@ -1,0 +1,47 @@
+\subsection{Use Case Diagrams}
+\label{subsec:usecasediagrams}
+\subsubsection{Log-in}
+\madeby{\af} {\jb}
+We have that every Employee in the system can log-in. The specific actions varies depending on the level of authorisation that the actor who performed the log-in is assigned to. 
+
+\begin{myfigure}{Use_Case_Diagram/Administration_Authentication}{0.6}
+\caption{Log-in use case. \madeby{\mt}{\jb}}
+\label{fig:usecase_login}
+\end{myfigure}
+
+\subsubsection{Administration}
+\madeby{\mb}{\kj}
+If we look at the tasks that the managers of the Toll System can do. We have that both the Station and Enterprise manager who can generate reports according to their level of authorisation. Beside this the Enterprise manager is able to change the pricing of the toll way, for both ticket and toll tags. Finally the Enterprise manager can notify all customers registered in the system, about upcoming changes that will affect the customer. E.g. be a change in the price for using the toll way. An overview of the use cases related to administration if shown in Figure \ref{fig:usecase_manageadmin}.
+
+\begin{myfigure}{Use_Case_Diagram/Manager_Administration}{0.7}
+\caption{Use cases related to the administration that managers can perform on the Toll System. \madeby{\jb}{\mb}}
+\label{fig:usecase_manageadmin}
+\end{myfigure}
+
+\subsubsection{Buy Toll Tag}
+\madeby{\kj}{\mt}
+The process of buying a Toll Tag is divided into several steps, in which the Driver can manually do all parts of the process. A normal procedure is that the Driver will request a form, that he needs to fill out and return. When the form has been filled out and processed the Driver will receive a Toll Tag for future use. The cashier can likewise fill in the form, in case the Driver shows up at the station. The use cases related for buying a Toll Tag can be seen in \figref{fig:usecase_buytolltag}
+
+\begin{myfigure}{Use_Case_Diagram/Buy_toll_tag}{0.8}
+\caption{Use cases related to buying a toll tag. \madeby{\mb}{\af}}
+\label{fig:usecase_buytolltag}
+\end{myfigure}
+
+\subsubsection{Check-in}
+\madeby{\mb}{\af}
+The use cases related to checking-in to the system, i.e. the Driver enters the toll way, can be seen in \figref{fig:usecase_checkin}. The idea is that two payment methods can fail, either by the Toll tag not being recognised or a credit card payment has failed. In this case a manual override will take place, with the help from a Cashier that is summoned to assist in the situation. 
+In case the Driver decides to pay with cash, no problems can occur as a cashier is already there to resolve any problems they might experience during the money transfer. 
+
+\begin{myfigure}{Use_Case_Diagram/Check-in}{0.8}
+\caption{Use cases related to checking-in to the toll way. \madeby{\jb}{\mt}}
+\label{fig:usecase_checkin}
+\end{myfigure}
+
+\subsubsection{Check-out}
+\madeby{\mt}{\kj}
+The use cases related to checking-out of the system, i.e. the Driver exits the toll way can be seen in \figref{fig:usecase_checkout}. As shown there are two ways for a Driver to check-out from the toll way, by Toll Tag or by Ticket. In both cases the system may report a failure, either if the Toll Tag is not recognised or the Ticket is not valid any longer. So by having extension points on both use cases, check-out failure will react on the failure, and a Cashier will resolve the issue as seen fit. 
+
+\begin{myfigure}{Use_Case_Diagram/Check-out}{0.8}
+\caption{Use cases related to checking-out of the toll way.\madeby{\mb}{\af}}
+\label{fig:usecase_checkout}
+\end{myfigure}

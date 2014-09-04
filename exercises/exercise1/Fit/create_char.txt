@@ -1,0 +1,41 @@
+!contents -R2 -g -p -f -h
+
+Use case "Create Character" success scenario
+
+!|ActionFixture                          |
+|start|Player          |                 |
+|enter|character name  |Marnizzle        |
+|enter|password        |Fisk1234         |
+|enter|email           |mktange@gmail.com|
+|press|Create Character|                 |
+|check|error message   |                 |
+
+Alternative scenario 2a: the character name is already in use
+
+!|ActionFixture                                      |
+|start|Player          |                             |
+|enter|character name  |Marnizzle                    |
+|enter|email           |mktange@gmail.com            |
+|enter|password        |Fisk1234                     |
+|press|Create Character|                             |
+|check|error message   |Character name already in use|
+
+Alternative scenario 2b: Invalid e-mail address
+
+!|ActionFixture                               |
+|start|Player          |                      |
+|enter|character name  |Marnizzle             |
+|enter|email           |mktange@gmail,com     |
+|enter|password        |Fisk1234              |
+|press|Create Character|                      |
+|check|error message   |Invalid e-mail address|
+
+Alternative scenario 2c: Password does not follow the set rules
+
+!|ActionFixture                                      |
+|start|Player          |                             |
+|enter|character name  |Marnizzle                    |
+|enter|email           |mktange@gmail.com            |
+|enter|password        |Fiskefars                    |
+|press|Create Character|                             |
+|check|error message   |Password must contain numbers|

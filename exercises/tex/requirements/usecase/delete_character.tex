@@ -1,0 +1,71 @@
+\begin{usecase}
+
+\addtitle{Use Case 2}{Delete Character} 
+
+%Scope: the system under design
+%\addfield{Scope:}{System-wide}
+
+%Level: "user-goal" or "subfunction"
+\addfield{Description:}{The player wants to delete one of his existing characters}
+
+%Primary Actor: Calls on the system to deliver its services.
+\addfield{Actor:}{Player}
+
+%Stakeholders and Interests: Who cares about this use case and what do they want?
+%\additemizedfield{Stakeholders and Interests:}{
+%	\item Stakeholder 1 name: his interests
+%	\item Stakeholder 2 name: his interests
+%}
+
+%Preconditions: What must be true on start and worth telling the reader?
+\addfield{Preconditions:}{Player has authenticated his account on the server. Player has to have one or more characters created on the server}
+%when multiple
+%\additemizedfield{Preconditions:}{} 
+
+%Main Success Scenario: A typical, unconditional happy path scenario of success.
+\addscenario{Main Scenario:}{
+	\item The player provides the server with information about which character he wants to delete.
+	\item The player confirms the deletion providing the password for the character.
+}
+
+%Extensions: Alternate scenarios of success or failure.
+\addscenario{Alternative Scenario:}{
+	\item[1.a] Invalid character name:
+		\begin{enumerate}
+		\item[1.] System shows failure message, explaining the issue.
+		\item[2.] Player returns to step 1 and corrects the errors
+		\end{enumerate}
+	\item[2.a] Wrong password provided:
+		\begin{enumerate}
+		\item[1.] System shows failure message, explaining the issue.
+		\item[2.]  The player retries step 2.
+		\end{enumerate}
+	\item[2.a] Wrong password provided - three times:
+		\begin{enumerate}
+		\item[1.] System shows failure message, explaining the issue.
+		\item[2.] The player gets returned to main menu.
+		\item[3.] The player that has registered the character get a notification regarding the deletion request. 
+		\end{enumerate}
+	
+}
+
+%Special Requirements: Related non-functional requirements.
+%\additemizedfield{Special Requirements:}{
+%	\item first applicable non-functional requirement
+%	\item second applicable non-functional requirement
+%}
+
+%Postconditions: What must be true on successful completion and worth telling the reader
+\addfield{Postconditions:}{The player has deleted a character he had a password for.}
+%when multiple
+%\additemizedfield{Preconditions:}{}
+
+
+%Frequency of Occurrence: Influences investigation, testing and timing of implementation.
+%\addfield{Notes:}{}
+
+%Miscellaneous: Such as open issues/questions
+%\addfield{Open Issues:}{}
+
+\end{usecase}
+

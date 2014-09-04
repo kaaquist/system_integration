@@ -1,0 +1,3 @@
+Class: Room
+Responsibility: Knows Characters; Knows Items; Knows Rooms; Add/Remove Items; Add/Remove Character
+Collaboration: Item/Object; Character

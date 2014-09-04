@@ -1,0 +1,33 @@
+
+
+
+Nye:
+	Er det ok at vi primært har synkrone kald mellem komponenter eller bør der også laves asynkrone? Det er ok
+	Hvordan fungerer cashier checkin/out ved express lanes når der ikke er cash register o.l.? Vi skal lave en manuel override
+	Klasser der implementerer hardware interfaces? Kun hvis det giver mening
+
+
+
+
+
+
+Besvaret:
+Activity diagrams: 
+	Skal beskrive på et mere overordnet plan hvad der sker i forretningen. F.eks. en bruger der køber et toll-tag og derefter kan køre rundt på motorveje og opkræves penge
+	Used as domain analysis? Ja
+	
+PSM:
+	State machine for protocol, port og objects?
+	
+		State machines kun på interface
+			Return values skrives bare som OCL eks: result = paymentInfo
+			Object lifecycle statemachine på implementerende klasser skal kalde over porten
+			De fleste protocol state machines bliver bare en til to states
+			Ting opståede i hardware skal ikke angives som triggers
+		
+	Signals != return messages
+	
+	
+FIT:
+	Human interaction -> Fit tests skal beskrive interactions med systemet, ikke mellem actors
+	

@@ -1,0 +1,89 @@
+\section{Component Design}
+\madeby{\mb}{\mt}
+In this section we describe the design of our system at the component level. We will first give an overview of how the different components are connected, followed by a more detailed view of which interfaces they provide and require. Finally we provide protocol state machines for all interfaces.
+%Dont know if there should be a subsection //Johan
+\subsection{System Components}
+\madeby{\mt}{\mb}
+In \figref{fig:component} we provide the overall layout of our components. We can see that every toll lane is modelled as a component that connects to multiple hardware components. The number of hardware components depends on the type of lane as pr the non-functional requirements in \secref{sec:non-func}. Stations are modelled as a component which connects to all its lanes. The enterprise is modelled as a component which connects to all its stations.
+
+\begin{mylandscapefigure}{Composite_Structure_Diagram/Component}
+\caption{Overview of components and their connections. \madeby{\kj}{\af}}
+\label{fig:component}
+\end{mylandscapefigure}
+
+In \figref{fig:componentI} we see an overview of which interfaces are used to communicate between the major components. We see that the Enterprise Client has an interface to the Enterprise server which is implemented on a webserver. All other components can communicate in both directions.
+\begin{myfigure}{Implementation_Diagram/Component_with_Interfaces}{1}
+\caption{Overview of interfaces between major components. \madeby{\jb}{\af}}
+\label{fig:componentI}
+\end{myfigure}
+
+In \figref{fig:componentLaneI} we see how the toll lane is connected to hardware. Most connections are one-way except the connection between the lane and a touch screen.
+\begin{myfigure}{Implementation_Diagram/TollLane_with_Interfaces}{1}
+\caption{Overview of interfaces between a toll lane and its hardware. \madeby{\mb}{\kj}}
+\label{fig:componentLaneI}
+\end{myfigure}
+
+\subsection{Protocol State Machines}
+\madeby{\jb}{\mt}
+In this section we show all protocol state machines. We first show the protocols between a lane and its hardware components, then we show the protocols for the interfaces between major components.
+
+\subsubsection{One-way communication}
+\begin{myfigure}{Protocol_State_Machine_Diagram/BarrierToLaneProtocol}{1}
+\caption{PSM for communicating with a barrier. \madeby{\kj}{\mb}}
+\end{myfigure}
+
+\begin{myfigure}{Protocol_State_Machine_Diagram/CashRegisterToLaneProtocol}{1}
+\caption{PSM for communicating with a cash register. \madeby{\af}{\mt}}
+\end{myfigure}
+
+\begin{myfigure}{Protocol_State_Machine_Diagram/CreditCardToLaneProtocol}{1}
+\caption{PSM for communicating with a credit card reader. \madeby{\jb}{\mt}}
+\end{myfigure}
+
+\begin{myfigure}{Protocol_State_Machine_Diagram/LaneToAntennaProtocol}{1}
+\caption{PSM showing how the antenna communicates with a lane.\madeby{\af}{\kj}}
+\end{myfigure}
+
+\begin{myfigure}{Protocol_State_Machine_Diagram/LaneToTicketReaderProtocol}{1}
+\caption{PSM showing how the ticket reader communicates with a lane.\madeby{\mb}{\mt}}
+\end{myfigure}
+
+\begin{myfigure}{Protocol_State_Machine_Diagram/TicketPrinterToLaneProtocol}{1}
+\caption{PSM showing how the ticket printer communicates with a lane.\madeby{\jb}{\af}}
+\end{myfigure}
+
+\subsubsection{Two-way communication}
+\madeby{\af}{\jb}
+In the communication between the touch screen and the lane as shown in \figref{fig:LTS} and \figref{fig:TSL}, we see that messages sent from the touch screen, originates from user interaction with the screen and that the lane answers with signals.
+\begin{myfigure}{Protocol_State_Machine_Diagram/LaneToTouchScreenProtocol}{1}
+\caption{PSM showing how the touch screen communicates with the lane. \madeby{\kj}{\jb}}
+\label{fig:LTS}
+\end{myfigure}
+
+
+\begin{myfigure}{Protocol_State_Machine_Diagram/TouchScreenToLaneProtocol}{1}
+\caption{PSM showing how the lane communicates with the touch screen. \madeby{\mb}{\mt}}
+\label{fig:TSL}
+\end{myfigure}
+
+\subsubsection{Communication between major components}
+Here we show the protocols for communication between the major components.
+\begin{myfigure}{Protocol_State_Machine_Diagram/StationToLaneProtocol}{1}
+\caption{Communication from a toll lane to a station. \madeby{\mt}{\af}}
+\end{myfigure}
+
+\begin{myfigure}{Protocol_State_Machine_Diagram/LaneToStationProtocol}{1}
+\caption{Communication from a station to a toll lane. \madeby{\kj}{\jb}}
+\end{myfigure}
+
+\begin{myfigure}{Protocol_State_Machine_Diagram/StationToEnterpriseProtocol}{1}
+\caption{Communication from the enterprise server to the stations. \madeby{\mb}{\mt}}
+\end{myfigure}
+
+\begin{myfigure}{Protocol_State_Machine_Diagram/EnterpriseToStationProtocol}{1}
+\caption{Communication from the stations to the enterprise server. \madeby{\af}{\kj}}
+\end{myfigure}
+
+\begin{myfigure}{Protocol_State_Machine_Diagram/EnterpriseServerToClientProtocol}{1}
+\caption{Communication from the enterprise client to the enterprise server. \madeby{\jb}{\mb}}
+\end{myfigure}

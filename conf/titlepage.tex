@@ -1,0 +1,36 @@
+\begin{titlepage}
+\begin{center}
+
+% Upper part of the page
+\includegraphics[width=0.8\textwidth]{dtu_logo}\\[1cm]
+
+% Course
+\textsc{\Large \courseno\ \coursename}\\[0.5cm]
+ 
+% Title
+\HRule \\[0.4cm]
+{\huge \textbf{\title} \\[0.3cm] \Large \subtitle}\\[0.4cm]
+ 
+\HRule \\[1.5cm]
+ 
+% Authors
+\begin{minipage}{0.8\textwidth} \large
+
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} l r}
+\forloop[2]{cnt}{1}{\value{cnt} < \eval{\value{authorcnt}+1}}{%
+	\authorname{\thecnt} & \authorname{\eval{\thecnt+1}} \\
+	\authorsno{\thecnt} & \authorsno{\eval{\thecnt+1}} \\[1cm]
+}
+\end{tabular*}
+
+\end{minipage}
+
+ 
+\vfill
+
+% Bottom of the page
+{\large \date}
+ 
+\end{center}
+ 
+\end{titlepage}

@@ -1,0 +1,38 @@
+!contents -R2 -g -p -f -h
+
+Use case "Check-in Buy Ticket Cash" success scenario
+
+!|ActionFixture                          |
+|start|Driver                          |
+|press|Car              |
+|check|Price           |10 kr.           |
+|press| Cash |
+|enter|Cash            |10 kr.           |
+|check|Ticket Received    | true |
+|check|Barrier Open       | true        |
+
+Use case "Check-in Buy Ticket Credit Card" success scenario
+
+!|ActionFixture                          |
+|start|Driver                             |
+|press|Car              |
+|check|Price              |10 kr.    |
+|press| Credit Card |
+|enter|Credit Card Pin Code       |  1234       |
+|check|Credit Card verified | true        |
+|check|Ticket Received    | true |
+|check|Barrier Open        |true   |
+
+Alternative scenario: Use case "Check-in Buy Ticket Credit Card" verify failure
+
+!|ActionFixture                          |
+|start|Driver                             |
+|press|Car              |
+|check|Price              |10 kr.    |
+|press| Credit Card |
+|enter|Credit Card Pin Code       |  41225      |
+|check|Credit Card verified | false        |
+|press|Notify Cashier             |
+|check|Problem Resolved   | true |
+|check| Ticket Received | true   |
+|check|Barrier Open    | true    |

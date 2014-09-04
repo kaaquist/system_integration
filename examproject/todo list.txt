@@ -1,0 +1,65 @@
+Spørg Hubert Liste:
+	Spørg om bank modellering!
+	Spørg om OCL i dybden
+	
+	Class diagram versus component diagram
+	-Constructors in Sequence diagrams (Laves bare med "create(parametre) -> [ klasse ]"   )
+	Detailed Usecase Description når der bruges <<extend>> i diagrammet
+
+Design Decisions
+	Bank modellering (både enterprise og credit card) (spørg Hubert)
+X	Barrier lukker af sig selv
+X	Underlige cases for barrier og andre use cases
+X	Manual override
+X	Antager at buy toll tag er implementeret							
+X	Ticket printer == printer
+X	Ingen beregning af toll tag cost
+X	No security
+X	Malformed antenna data giver automatisk notify cashier
+X	Definer hvad check-in/check-out faillure er
+X	Manual check-in/check-out er ikke modelleret i dybden
+	
+	
+Diagram todo 10/5
+
+	Activity (mangler Generate Reports?)
+		- Skal laves som mere generelle forretningsprocesser. Se hospitals eksempel i slides
+		- Administrative ting (change rates, generate reports, change user info, notify customers)
+		- 
+
+	Use case
+		Tilføj ting som at station manager kan se og ændre customer info
+
+Generel todo:
+	(1) Functional Requirements 
+		(1.1) Activity diagrams of basic workflows (Andreas) 
+		(1.2) Use case diagrams
+		(1.3) 5 use cases in detail (see above)
+			(1.3.1) Check-in (ticket)
+			(1.3.2) Check-in (tag)
+			(1.3.3) Check-out (ticket) 
+			(1.3.4) Check-out (tag) (Johan)
+			(1.3.5) Generate report (Kasper)
+	(2) Section Acceptance Test
+		(2.1) For each detailed use case (acceptance test)
+	(3) Section Design 
+		(3.1) Simple Component Diagram showing the overall system 
+		(3.2) Explain any non-trivial decisions and any assumptions
+	(4) Section Component Design
+		(4.1) Refine the component diagram with port, and interfaces and make 		  	  protocol state machines for all provided interface. (Mikkel og Kasper)
+		(4.2) Each hardware component need a protocol state machine without 		  	  going into detail. 
+	(5) Section Class Design 
+		(5.1) Describe classes needed for the components
+		(5.2) OCL contraints for all classes 
+		(5.3) For non-trivial operations (describe OCL) 
+		(5.4) Each class, needs an informal text describing their interaction 		      and the contract of the operation
+	(6) Section Behaviour Design 
+		(6.1) Object life cycle state machine for every non-trivial class.
+	(7) Section Use Case Realisation 
+		(7.1) Realise the selected use cases with interaction diagrams, i.e. 			      sequence- or communication diagrams, depending on what fits. 
+	(8) Non-functional reqs
+
+What is completed: 
+	- Section Domain Analysis (Domain diagram and glossary (can be updated))
+	- 
+	

@@ -1,0 +1,20 @@
+!contents -R2 -g -p -f -h
+
+Use case "Check-out Ticket" success scenario
+
+!|ActionFixture                          |
+|start|Driver                          |
+|enter|Ticket    | ticket         |
+|check|Valid ticket | true | 
+|check|Barrier Open  | true |
+
+
+Use case "Check-out Ticket" Invalid ticket scenario
+
+!|ActionFixture                          |
+|start|Driver                          |
+|enter|Ticket    | ticket         |
+|check|Valid ticket | false | 
+|press|Notify cashier | 
+|check|Problem resolved | true |
+|check|Barrier Open  | true |

@@ -1,0 +1,52 @@
+
+\section{Assumptions}
+\madeby{\af}{\mb} When producing this project we have made some assumptions, both on the state of the system, on the project description and on the hardware used.
+
+\subsection{State of system}
+We have made the following assumptions about the state of the system.
+\begin{description}
+\item [Buy toll tag:] We have assumed that infrastructure for signing up for toll tags is already in place. 
+This is so we can focus on generating reports which spans more components instead. 
+
+\item [Security:] We have also assumed that there is no need for security in terms of passwords or other means of authentication.
+
+\end{description}
+
+\subsection{Hardware components}
+We have made the following assumptions on the hardware used for the system.
+\begin{description}
+\item [Barrier:] We have assumed that a barrier contains sensors so it will close automatically once a vehicle has passed.
+
+\item [Credit Card Reader:] We have assumed that part of the credit card reader is communicating with banks.
+
+\item[Touchscreen:] We have assumed that the touchscreen is used by the drivers, meanwhile the cashier will interact with a normal computer when he/she is logged-in on the normal lanes
+
+\end{description}
+
+\subsection{Project Description}
+The following is assumptions we have made on the contents of the project description
+\begin{description}
+\item [Cashier resolution:] We have assumed that when cashiers resolves errors at check-in and check-out they perform the transaction of money directly with the customer and does a manual override to open the barrier.
+
+\item [Printer:] We have assumed that the printer attached to all normal check in lanes acts as a ticket printer.
+\end{description}
+
+
+\section{Design Decisions} 
+\madeby{\kj}{\jb} We have made some decisions on the design and to which extent we model things.
+\begin{description}
+\item [Malformed Antenna data:] We have decided that any corrupt antenna data sent to the system triggers an immediate notification to the station, and have not modelled this.
+
+\item [Manuel Override:] We have decided not to explicitly model the manual override done at check-in and check-out failures, and instead just leave it up to implementation.
+
+\item [Toll tag costs:] We have not modelled how toll tags are charged as we see this as a separate use case. We have however made sure that the current system contains data needed for this calculation.
+
+\item [Edge cases:] We have not modelled strange edge cases in our uses cases. Things such that the barrier closing on top of a vehicle or drivers not having enough money to pay for tickets that turn around etc.
+
+\item [TollLanes:] We have decided to split toll lanes into check-in lanes and check-out lanes. We then use the components attached to the lane to differentiate express lanes from normal lanes. This was done as the functionality of toll lanes is mainly split on whether it is a check-in or a check-out.
+
+\item [Station Client:] As we have not done any use case that required the station client, we have not modelled this in our project.
+
+
+\end{description}
+

@@ -1,0 +1,46 @@
+
+\noindent Use case "Offer Trade" success scenario
+
+\vspace{0.4cm}
+\begin{tabular}{| p{2cm} | p{5.5cm} | p{5.5cm} |} \hline
+\multicolumn{3}{|l|}{ActionFixture} \\ \hline
+start & Player &  \\ \hline
+check & Inventory & Bottle \\ \hline
+enter & offer trade & Bottle \\ \hline
+check & get offer back & true \\ \hline
+enter & get offer & Torch \\ \hline
+enter & confirm trade & true \\ \hline
+check & Inventory & Torch \\ \hline
+check & error message &  \\ \hline
+\end{tabular}
+\vspace{0.8cm}
+
+\noindent Alternative scenario 2a: Second player declines the offer
+
+\vspace{0.4cm}
+\begin{tabular}{| p{2cm} | p{5.5cm} | p{5.5cm} |} \hline
+\multicolumn{3}{|l|}{ActionFixture} \\ \hline
+start & Player &  \\ \hline
+check & Inventory & Bottle \\ \hline
+enter & offer trade & Bottle \\ \hline
+check & get offer back & false \\ \hline
+check & error message & offer declined \\ \hline
+\end{tabular}
+\vspace{0.8cm}
+
+\noindent Alternative scenario 3a: First player declines the counter offer
+
+\vspace{0.4cm}
+\begin{tabular}{| p{2cm} | p{5.5cm} | p{5.5cm} |} \hline
+\multicolumn{3}{|l|}{ActionFixture} \\ \hline
+start & Player &  \\ \hline
+check & Inventory & Bottle \\ \hline
+enter & offer trade & Bottle \\ \hline
+check & get offer back & true \\ \hline
+enter & get offer & Torch \\ \hline
+enter & confirm trade & false \\ \hline
+check & Inventory & Bottle \\ \hline
+check & error message &  \\ \hline
+\end{tabular}
+\vspace{0.8cm}
+

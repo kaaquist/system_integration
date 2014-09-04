@@ -1,0 +1,46 @@
+\begin{table}[H]
+
+\resizebox{\textwidth}{!} {
+
+\begin{tabular}{| l | l | l | l |}
+\hline
+\multicolumn{4}{| l |}{\textbf{TollLane}} \\ \hline
+\multicolumn{4}{| p{\textwidth} |}{Responsible for allowing people to pass a Toll Lane, with the use of a TollTag, credit-card or cash depending on the setting of the the TollLane. This is possible through the use of several peripherals assigned to each Toll Lane. }  \\
+
+
+
+\hhline{====}
+\textbf{Interaction} & \textbf{Class}  & \multicolumn{2}{ p{0.65\textwidth} |}{\textbf{Description}} \\ \hline
+ 
+ barrier & Barrier &  \multicolumn{2}{p{0.65\textwidth} |}{The barrier assigned to the Toll Lane} \\ \hline 
+ 
+ prices & float & \multicolumn{2}{p{0.65\textwidth} |}{A map composed of the prices assigned to each VehicleType registered in the system} \\ \hline 
+ 
+ passes  & LanePass & \multicolumn{2}{p{0.65\textwidth} |}{All LanePasses that has occurred on the TollLane, i.e. either check-ins or check-outs. } \\ \hline 
+ 
+ station  & Station & \multicolumn{2}{p{0.65\textwidth} |}{The station which the TollLane is assigned to.} \\ \hline 
+% {Interaction}  & {Class} & \multicolumn{2}{p{0.65\textwidth} |}{Description} \\ \hline 
+% {Interaction}  & {Class} & \multicolumn{2}{p{0.65\textwidth} |}{Description} \\ \hline 
+% {Interaction}  & {Class} & \multicolumn{2}{p{0.65\textwidth} |}{Description} \\ 
+
+\hhline{====}
+\textbf{Operation} & \textbf{In} & \textbf{Out} & \textbf{Description} \\ \hline
+
+logIn  &    &    & \multicolumn{1}{p{0.55\textwidth} |}{Will enable a Cashier to log-in to the TollLane, to enable cash payment or resolve issues} \\ \hline
+logOut  &   &    & \multicolumn{1}{p{0.55\textwidth} |}{Log-outs the Cashier from the TollLane, disabling cash payment} \\ \hline
+
+generateReport & Period & LanePass[*] & \multicolumn{1}{p{0.55\textwidth} |}{Returns all LanePass that has occurred on the TollLane within the given period} \\ \hline
+
+tagArrive & tagId &    & \multicolumn{1}{p{0.55\textwidth} |}{Is called whenever a toll tag is being registered by the antenna} \\ \hline
+
+
+%getLanePasses  & Period   & LanePass[*]   & \multicolumn{1}{p{0.55\textwidth} |}{Returns all LanePass that has occurred on the TollLane within the given period} \\ \hline
+
+%{Operation}  & {IN}   & {OUT}   & \multicolumn{1}{p{0.55\textwidth} |}{Description} \\ \hline
+%{Operation}  & {IN}   & {OUT}   & \multicolumn{1}{p{0.55\textwidth} |}{Description} \\ \hline
+
+\end{tabular}
+}
+\caption{Description of class TollLane \madeby{\af}{\mb}}
+\label{tab:tolllane_class}
+\end{table}

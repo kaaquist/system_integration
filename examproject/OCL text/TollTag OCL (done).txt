@@ -1,0 +1,12 @@
+TollTag
+		checkOut(tag)	{post: if current@pre <> null then
+								current = null and result = true 
+								and trips = trips@pre->including(t) and t.out = tag and t.in = current@pre
+								else
+								result = false and current@pre = current and trips@pre = trips}
+		checkIn(tag)	{post: if current@pre = null then
+								current = tag and result = true
+								else
+								result = false and current = null
+								endif
+								and trips = trips@pre}	

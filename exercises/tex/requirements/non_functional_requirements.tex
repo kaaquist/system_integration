@@ -1,0 +1,58 @@
+\section{Non-functional Requirements}
+This section provides a list of non-functional requirements we have derived based on the description of the game combined with some assumptions about the business case for creating the game.
+\begin{description}
+
+\item [Availability] \hfill 
+	\begin{description}
+		\item[Working days (Monday - Thursday)] The system should be available 100.0\% of the time between 08:00 AM to 04:00. The system should be available 95\% of the time between 04:00 AM and 08:00 AM in order for updates to be rolled onto the server.
+		\item[Weekends (Friday - Sunday)] The system should be available 100.0\% of the time at any time during the day. 
+	\end{description}
+
+\item [Restartability] \hfill 
+	\begin{itemize}
+	   \item The system should be able to restart from a crash in at most 2 minutes, and an average of at most 1 minute.
+	\end{itemize}
+
+\item [Portability] \hfill 
+	\begin{itemize}
+		\item The server side software must be able to run on Linux and Windows servers.
+		\item The client side must be able to run on any smartphone OS.
+		\item It must be possible to port the game to 95 \% of new OS's within two weeks of work.
+	\end{itemize}
+
+\item [Maintainability] \hfill 
+	\begin{itemize}
+	  	\item A programmer with 1 year of experience must be able to fix 90 \% of confirmed bugs in 5 hours.
+	\end{itemize}
+
+
+
+\item [Privacy] \hfill 
+	\begin{itemize}
+		\item Only the player himself as well as administrators are able to see the player profile info after being authenticated in the system.
+	\end{itemize}
+
+\item [Usability] \hfill 
+	\begin{itemize}
+		\item An experienced player should be able to perform any feature on a average time of 30 seconds. 
+		\item A player with no prior experience must be able to play the game with all features (chatting, trading, object manipulation and movement) within 15 minutes.
+	\end{itemize}
+
+\item[Security] \hfill 
+	\begin{itemize}
+		\item All player input is validated before processing, in order to avoid e.g. SQL injection.
+		\item A player has to authenticate himself before being able to join a game. 
+	\end{itemize}
+
+ 
+
+\item[Installability] \hfill 
+	\begin{itemize}
+	     \item Initial installation for the end-user should at most take 15 minutes. 
+	     \item Updates for the game is notified to the end-user through notification when the app is started, and the user will be required to download any updates before he can use the game.
+	     \item It must be possible to set-up the game server for a person with 1 years of experience within 1 hour of work. 
+	     \item A person with 1 year of experience must be able to set up a game with all necessary parameters within 15 minutes. 
+	\end{itemize}
+
+ 
+\end{description}

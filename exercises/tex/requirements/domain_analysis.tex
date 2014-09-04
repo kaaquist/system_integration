@@ -1,0 +1,29 @@
+\section{Domain Analysis}
+In this section we provide a glossary of important terms in the domain along with descriptions of the individual terms. We provide a class diagram showing a model of the domain and finally we provide acceptance tests for the system.
+
+
+%% Glossary
+\subsection{Glossary}
+\begin{description}
+	\item[Player] The person interacting with the server and the game. \textit{(Optionally: user)}
+	\item[Character] The player of the game is controlling a character through the levels.
+	\item[Server] The server communicates with the players of the game and is responsible for authenticating players before they enter a game. The game objects are also kept on the server, such that different players can be sure to get the same representation of the game. Trading and communication between players also runs through the server.
+	\item[Game] The MUD game consists of a number of levels. All levels have to be completed in order to win the game.
+	\item[Level] A level consists of a set of rooms that are connected. The level is completed when the player reaches the special room.
+	\item[Room] Each level consists of a number of rooms. Each room can contain an unrestricted number of objects and has at least one connection to another room on the same level.
+		\begin{description}
+			\item[Start] At the beginning of each level the player is placed in the start room.		
+			\item[Special] Upon reaching the special room of a level, the level is completed and the player advances to the next level or wins the game.
+		\end{description}
+	\item[Inventory] Each player has an inventory in which up to five objects can be kept.
+	\item[Object] Objects can be found throughout the rooms of each level. A player can pick up objects and place them in his inventory.
+	\item[Trading] The process of two players exchanging objects that they have in their inventory.
+\end{description}
+
+
+%% Class Diagram
+\subsection{Class Diagram}
+\begin{myfigure}{Domain_model}{0.95}%
+	\caption{Class diagram - showing the domain model.}
+	\label{fig:domain-model}
+\end{myfigure}

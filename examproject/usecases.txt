@@ -1,0 +1,18 @@
+Usecases:
+
+* Check-in
+  - cash
+  - credit
+  - tag
+* Check-out
+  - ticket
+  - tag
+* Buy toll tag
+* Show reports
+* Change rate
+* Notify customers
+* Administration
+  - authenticate cashier at lane
+  - authenticate station manager at station client
+  - authenticate enterprise manager at enterprise client
+  

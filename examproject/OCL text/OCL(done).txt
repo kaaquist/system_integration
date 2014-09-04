@@ -1,0 +1,13 @@
+Check-in Lane
+	selectType ---> { post: selectedType = type }
+	payWithCash ---> { pre: type <> null 
+					   post: cashRegister^collect(prices^get(type)) and if (payStatus and ticketStatus) then 
+							 checkIns = checkIns->includes(checkIns@pre) and 						 
+							 checkIns->size() = checkIns@pre->size() + 1}
+		
+	payWithCC ---> {   pre: type <> null
+					   post: ccr^handlePayment(prices^get(type)) and if (payStatus and ticketStatus) then 
+							 checkIns = checkIns->includes(checkIns@pre) and 
+							 checkIns->size() = checkIns@pre->size() + 1}
+	
+	tagArrive	   { post: }

@@ -1,0 +1,6 @@
+Enterprise
+		checkOut(tag)	{post: tags->get(tag.getId())^checkOut(tag) }
+		checkIn(tag)	{post: tags->get(tag.getId())^checkIn(tag)}
+		generateReports()  {post: stations-> forall( station | result.get(station) = station.generateReport())}
+		//TODO generateReports()
+		

@@ -1,0 +1,74 @@
+\begin{usecase}
+
+\addtitle{Use Case:}{Credit card or cash check-in} 
+
+%Scope: the system under design
+%\addfield{Scope:}{System-wide}
+
+%Level: "user-goal" or "subfunction"
+\addfield{Description:}{A driver wants to check-in with his vehicle by buying a ticket with credit card or cash.}
+
+%Primary Actor: Calls on the system to deliver its services.
+\addfield{Actor:}{Driver, Cashier}
+
+%Stakeholders and Interests: Who cares about this use case and what do they want?
+%\additemizedfield{Stakeholders and Interests:}{
+%	\item Stakeholder 1 name: his interests
+%	\item Stakeholder 2 name: his interests
+%}
+
+%Preconditions: What must be true on start and worth telling the reader?
+\addfield{Preconditions:}{The driver is at the point of sale at a normal check-in lane.}
+%when multiple
+%\additemizedfield{Preconditions:}{} 
+
+%Main Success Scenario: A typical, unconditional happy path scenario of success.
+\addscenario{Main Scenario:}{
+	\item The driver presses the button on the touch screen corresponding to the type of vehicle he drives.
+	\item The driver is informed about ticket price on the screen.
+	\item The driver uses his credit card to pay for the ticket.
+	\item The driver receives his ticket from the ticket printer after the payment has been accepted.
+	\item The toll lane barrier is opened.
+}
+
+%Extensions: Alternate scenarios of success or failure.
+\addscenario{Alternative Scenario:}{
+	\item[1.b] The driver is at the point of sale at a normal check-in lane with a cashier present:
+		\begin{enumerate}
+		\item [1.] The driver requests a ticket from the cashier, providing vehicle information.
+		\item [2.] The cashier enters information about the vehicle into the toll lane system.
+		\item [3.] The cashier informs the driver about the price.
+		\item [4.] The driver pays the cashier.
+		\item [5.] The driver takes his ticket from the ticket printer.
+		\item [6.] The toll lane barrier is opened.
+		\end{enumerate}
+	\item[3.a] The credit card payment fails:
+		\begin{enumerate}
+		\item[1.] If not present, a cashier is summoned to handle the error.
+		\item[2.] If error is not resolvable, go to use case ''Cash check-in'', otherwise, go to main scenario step 3.
+		\end{enumerate}
+	\item [3.a] The driver decides not to buy a ticket
+		\begin{enumerate}
+		\item[1.] The driver exits the lane without getting on the motorway.
+		\end{enumerate}
+}
+
+%Special Requirements: Related non-functional requirements.
+%\additemizedfield{Special Requirements:}{
+%	\item first applicable non-functional requirement
+%	\item second applicable non-functional requirement
+%}
+
+%Postconditions: What must be true on successful completion and worth telling the reader
+\addfield{Postconditions:}{The driver has entered the motorway with a ticket that is valid for 24 hours.}
+%when multiple
+%\additemizedfield{Preconditions:}{}
+
+
+%Frequency of Occurrence: Influences investigation, testing and timing of implementation.
+%\addfield{Notes:}{}
+
+%Miscellaneous: Such as open issues/questions
+%\addfield{Open Issues:}{}
+
+\end{usecase}

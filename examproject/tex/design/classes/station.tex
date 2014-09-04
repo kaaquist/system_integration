@@ -1,0 +1,52 @@
+\begin{table}[H]
+
+\resizebox{\textwidth}{!} {
+
+\begin{tabular}{| l | l | l | l |}
+\hline
+\multicolumn{4}{| l |}{\textbf{Station}} \\ \hline
+\multicolumn{4}{| p{1.05\textwidth} |}{The station is acting as an layer between the Toll Lanes and the rest of the Toll System, and is using the communication originating from the Toll Lane either to issue action locally or transfer the request towards the Enterprise Server.}  \\
+
+
+
+\hhline{====}
+\textbf{Interaction} & \textbf{Class}  & \multicolumn{2}{ p{0.65\textwidth} |}{\textbf{Description}} \\ \hline
+ lanes  & TollLane & \multicolumn{2}{p{0.65\textwidth} |}{All TollLanes situated at the Station} \\ \hline 
+
+ location  & Location & \multicolumn{2}{p{0.65\textwidth} |}{The exact location of the Station} \\ \hline 
+
+ enterprise  & \multicolumn{1}{p{0.1\textwidth} |}{Enterprise Server} & \multicolumn{2}{p{0.65\textwidth} |}{The Enterprise Server in the Toll System} \\ \hline 
+
+% {Interaction}  & {Class} & \multicolumn{2}{p{0.65\textwidth} |}{Description} \\ \hline 
+% {Interaction}  & {Class} & \multicolumn{2}{p{0.65\textwidth} |}{Description} \\ \hline 
+% {Interaction}  & {Class} & \multicolumn{2}{p{0.65\textwidth} |}{Description} \\ 
+
+\hhline{====}
+\textbf{Operation} & \textbf{In} & \textbf{Out} & \textbf{Description} \\ \hline
+
+logIn  &  &  & \multicolumn{1}{p{0.55\textwidth} |}{Will enable a Station Manager to log-in to the Station} \\ \hline
+logOut  &   &  & \multicolumn{1}{p{0.55\textwidth} |}{Logs-out the Station Manager from the Station} \\ \hline
+compileReport  & Period   & \multicolumn{1}{p{0.08\textwidth} |}{Station\-Report}   & \multicolumn{1}{p{0.55\textwidth} |}{Will compile a StationReport composed of the information retrieved from the Toll Lanes placed on the Station} \\ \hline
+alertAvailableCashier  &   &    & \multicolumn{1}{p{0.55\textwidth} |}{Will alert any available cashier at the Station if a problem occurs in a Toll Lane} \\ \hline
+
+checkIn  & TagCheckIn   & Boolean   & \multicolumn{1}{p{0.55\textwidth} |}{Will try to make a check-in with the use of a toll tag} \\ \hline
+
+checkOut  & TagCheckOut   & Boolean   & \multicolumn{1}{p{0.55\textwidth} |}{Attempts to check-out the given tag} \\ \hline
+
+notifyCashier  &    &    & \multicolumn{1}{p{0.55\textwidth} |}{Will attempt to notify a cashier at the station as a problem has occurred on the station} \\ \hline
+
+getLocation  &    &   & \multicolumn{1}{p{0.55\textwidth} |}{Returns the location of the station} \\ 
+
+generateReport  & Period   & StationReport  & \multicolumn{1}{p{0.55\textwidth} |}{Will generate a report containing all passes that has occurred throughout the given period} \\ \hline
+
+
+\hline
+
+%{Operation}  & {IN}   & {OUT}   & \multicolumn{1}{p{0.55\textwidth} |}{Description} \\ \hline
+
+\end{tabular}
+}
+\caption{Description of class Station 
+\madeby{\af}{\jb}}
+\label{tab:station_class}
+\end{table}

@@ -1,0 +1,42 @@
+\begin{table}[H]
+
+\resizebox{\textwidth}{!} {
+
+\begin{tabular}{| l | l | l | l |}
+\hline
+\multicolumn{4}{| l |}{\textbf{CheckInLane} extends \textit{TollLane}} \\ \hline
+\multicolumn{4}{| p{\textwidth} |}{The lanes responsible for checking-in the Driver so he can enter the motorway. }  \\
+
+
+
+\hhline{====}
+\textbf{Interaction} & \textbf{Class}  & \multicolumn{2}{ p{0.65\textwidth} |}{\textbf{Description}} \\ \hline
+ selectedType  & VehicleType & \multicolumn{2}{p{0.65\textwidth} |}{The type of vehicle selected whenever a check-in the result in a Ticket being printed is made at the Lane.} \\ \hline 
+ ts  & TouchScreen & \multicolumn{2}{p{0.65\textwidth} |}{Used to report how well the system has dealt with the check-in. This could be that it has successfully dealt with the check-in or an error occurred.} \\ \hline 
+ ccr  & CreditCardReader & \multicolumn{2}{p{0.65\textwidth} |}{Will transfer the payment to the credit card reader, the will handle the payment. The credit card reader will return \textbf{true} whenever a payment is successful.} \\ \hline 
+ cashRegistrer  & CashRegister & \multicolumn{2}{p{0.65\textwidth} |}{Is used to handle the payment, when cash has been selected. The cash register is responsible for collecting the correct amount.} \\ \hline 
+ ticketPrinter  & TicketPrinter & \multicolumn{2}{p{0.65\textwidth} |}{The printer which is responsible for printing a ticket for the Driver whenever he pays with credit card or cash.} \\ \hline 
+ %{Interaction}  & {Class} & \multicolumn{2}{p{0.65\textwidth} |}{Description} \\ 
+
+\hhline{====}
+\textbf{Operation} & \textbf{In} & \textbf{Out} & \textbf{Description} \\ \hline
+
+manualCheckIn  &   &    & \multicolumn{1}{p{0.55\textwidth} |}{Will enable a cashier to make a manual check-in in case errors happen while checking-in.} \\ \hline
+
+selectType & VehicleType  &  float   & \multicolumn{1}{p{0.55\textwidth} |}{ Select the type of vehicle currently located at the CheckInLane } \\ \hline
+
+payWithCash  &   &    & \multicolumn{1}{p{0.55\textwidth} |}{ Set the check-in lane to handle the payment using the cash register in case a cashier is available} \\ \hline
+
+payWithCC &   &    & \multicolumn{1}{p{0.55\textwidth} |}{ Set the check-in lane to handle the payment with the use of the credit card reader} \\ \hline
+
+
+%{Operation}  & {IN}   & {OUT}   & \multicolumn{1}{p{0.55\textwidth} |}{Description} \\ \hline
+%{Operation}  & {IN}   & {OUT}   & \multicolumn{1}{p{0.55\textwidth} |}{Description} \\ \hline
+%{Operation}  & {IN}   & {OUT}   & \multicolumn{1}{p{0.55\textwidth} |}{Description} \\ \hline
+%{Operation}  & {IN}   & {OUT}   & \multicolumn{1}{p{0.55\textwidth} |}{Description} \\ \hline
+
+\end{tabular}
+}
+\caption{Description of class CheckInLane \madeby{\af}{\kj}}
+\label{tab:checkinlane_class}
+\end{table}

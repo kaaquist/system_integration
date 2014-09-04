@@ -1,0 +1,18 @@
+!contents -R2 -g -p -f -h
+
+Use case "Generate Enterprise Report" success scenario
+
+!|ActionFixture                          |
+|start|Enterprise Manager                          |
+|press | Generated Enterprise Report         |
+|check | Complete report | true   |
+
+
+
+
+Use case "Generate Enterprise Report" Missing station scenario
+
+!|ActionFixture                          |
+|start|Enterprise Manager                |
+|press | Generated Enterprise Report     |
+|check | Complete report | false         |

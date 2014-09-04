@@ -1,0 +1,173 @@
+\usepackage[utf8]{inputenc}
+\usepackage[british]{babel}
+\selectlanguage{british}
+\usepackage{a4wide}
+\usepackage{amsmath,amssymb,graphicx}
+\usepackage{float}
+\usepackage{hhline}
+%\usepackage[normalem]{ulem}
+%\usepackage{appendix}
+%\usepackage[usenames,dvipsnames]{color}
+\usepackage{fancyvrb}
+\usepackage{nameref}
+\usepackage{varwidth}
+\usepackage{multirow}
+%\usepackage{subcaption}
+\usepackage{forloop}
+\usepackage{etoolbox}
+\usepackage{lipsum}
+\usepackage{import}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\usepackage{sref}
+\usepackage{pdflscape}
+\usepackage{geometry}
+\usepackage{marginnote}
+%include the usecases package
+\usepackage{\confdir usecases}
+\hypersetup{
+    colorlinks=false,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black,
+    linkbordercolor={1 1 1}, % set to white 
+	citebordercolor={1 1 1} % set to white 
+}
+
+%% Adjust some document layout lengths
+\addtolength{\headsep}{5pt}
+\setlength{\headheight}{34.6pt}
+
+\titleformat{\chapter}[hang]{\normalfont\huge\bfseries}{\Huge \thechapter}{20pt}{\Huge}
+\titlespacing*{\chapter} {0pt}{3.5ex plus 1ex minus .2ex}{2.3ex plus .2ex}
+
+%% Make verbatim use \scriptsize
+\makeatletter
+\g@addto@macro\@verbatim\scriptsize
+\makeatother 
+
+%% Add image folders to graphicspath
+\graphicspath{{\confdir img/}{\imgdir}{\imgdir diagrams/}}
+
+%% Helper commands
+\newcommand{\inputtex}[1]{\input{\texdir #1}}
+\newcommand{\coolref}[1]{\textbf{\ref{#1}~\nameref{#1}}}
+\newcommand{\figref}[1]{Figure~\ref{#1}}
+\newcommand{\secref}[1]{Section~\ref{#1}}
+
+\newcommand{\inserttoc}{\pagenumbering{Roman}\tableofcontents\newpage\pagenumbering{arabic}\setcounter{page}{1}}
+\newcommand{\inserttitlepage}{\input{\confdir titlepage}}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+\newcommand{\eval}[1]{\the\numexpr #1\relax}
+\newcommand{\comm}[1]{}
+
+% Made by
+\newcommand{\madebyone}[1]{\textit{[#1]}}
+\newcommand{\madeby}[2]{\textit{[#1, #2]}}
+\newcommand{\af}{Andreas}
+\newcommand{\jb}{Johan}
+\newcommand{\kj}{Kasper}
+\newcommand{\mt}{Martin}
+\newcommand{\mb}{Mikkel}
+
+%% Helper environments
+\newenvironment{myfigure}[2]
+{% Before
+\begin{figure}[H] \centering
+	\includegraphics[width=#2\textwidth]{#1} 
+}
+{\end{figure}} % After
+
+\newenvironment{mylandscapefigure}[1]
+{% Before
+\begin{landscape}\begin{figure}[ht]\centering%
+\includegraphics[width=1\linewidth]{#1}% 
+}
+{\end{figure}\end{landscape}} % After
+
+%% Loop counter
+\newcounter{cnt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Course and subject configuration setup %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\courseno{\textit{COURSE NUMBER}}
+\def\coursename{\textit{COURSE NAME}}
+\def\title{\textit{TITLE}}
+\def\subtitle{\textit{SUBTITLE}}
+\def\date{\textit{DATE}}
+
+\newcommand{\setcourse}[2]{%
+	\def\courseno{#1}%
+	\def\coursename{#2}%
+}
+\newcommand{\settitle}[1]{%
+	\def\title{#1}%
+}
+\newcommand{\setsubtitle}[1]{%
+	\def\subtitle{#1}%
+}
+\newcommand{\setdate}[1]{%
+	\def\date{#1}%
+}
+%% End of course configuration
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Author configuration setup %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcounter{authorcnt}
+% Add a new author
+\newcommand{\addauthor}[3]{%
+	\stepcounter{authorcnt}%
+	\csdef{author_sno\theauthorcnt}{#1}
+	\csdef{author_fname\theauthorcnt}{#2}
+	\csdef{author_lname\theauthorcnt}{#3}
+}  
+% Set a specific author
+\newcommand{\setauthor}[4]{%
+	\csdef{author_sno#1}{#2}
+	\csdef{author_fname#1}{#3}
+	\csdef{author_lname#1}{#4}
+}
+% Get formatted name of author
+\newcommand{\authorname}[1]{%
+	\csuse{author_fname#1} \textsc{\csuse{author_lname#1}}%
+}
+% Get study number of author
+\newcommand{\authorsno}[1]{%
+	\csuse{author_sno#1}%
+}
+%% End of author configuration
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Header and footer setup %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+
+\fancyhead{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\lhead{\footnotesize \courseno\ \coursename}
+\chead{}
+\rhead{\includegraphics[width=0.05\textwidth]{dtu_logo2}}
+\lfoot{\tiny
+\begin{tabular}{ll}
+\forloop[2]{cnt}{1}{\value{cnt} < \eval{\value{authorcnt}+1}}{%
+	\authorname{\thecnt} & \authorname{\eval{\thecnt+1}} \\
+}
+\end{tabular}
+}
+\cfoot{}
+\rfoot{\footnotesize \thepage}
+
+

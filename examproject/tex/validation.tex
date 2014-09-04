@@ -1,0 +1,82 @@
+\chapter{Validation}
+In this chapter we use sequence diagrams to validate that the use cases from \secref{sec:usecase} can be done with the modelled system. Some diagrams contains just one scenario, while others show several scenarios.
+%\subimport{validation/}{use_case_realisation}
+
+\section{Use Case Realisation}
+
+\subsection{Tag Check-in}
+\madeby{\mt}{\jb}
+The Tag check-in use case main scenario is realised in \figref{fig:tag-in-success}. \figref{fig:tag-in-fail} shows two alternative scenarios. Optionally the tag id is recognised by the enterprise server, but is not checked out from the last trip, or the tag id is not recognised at all. Either way, it results in a failure to check in.
+
+\begin{mylandscapefigure}{Sequence_Diagram/TagCheckIn-Succes}
+\caption{Success scenario for the Tag Check-in use case. \madeby{\mt}{\jb}}
+\label{fig:tag-in-success}
+\end{mylandscapefigure}
+
+\begin{mylandscapefigure}{Sequence_Diagram/TagCheckIn-Faillure}
+\caption{Alternative scenario for the Tag Check-in use case. \madeby{\mt}{\jb}}
+\label{fig:tag-in-fail}
+\end{mylandscapefigure}
+
+
+
+\subsection{Tag Check-out}
+\madeby{\mb}{\af}
+The Tag Check-out use case main scenario is realised in the sequence diagram in \figref{fig:tag-out-success}. The two alternative scenarios are shown in \figref{fig:tag-out-fail}. One scenario where the check-out fails at the enterprise level because the tag id is not recognized and one scenario where it fails at the toll tag level because the tag is not already checked in somewhere.
+\begin{mylandscapefigure}{Sequence_Diagram/TagCheckOut-Succes}
+\caption{Success scenario for the Tag Check-out use case. \madeby{\mb}{\af}}
+\label{fig:tag-out-success}
+\end{mylandscapefigure}
+
+\begin{mylandscapefigure}{Sequence_Diagram/TagCheckOut-Failure}
+\caption{Alternative scenarios for the Tag Check-out use case. \madeby{\mb}{\af}}
+\label{fig:tag-out-fail}
+\end{mylandscapefigure}
+
+
+
+\subsection{Check-in with Ticket}
+\madeby{\kj}{\mt}
+The Ticket Check-in use case main scenario as well as one alternative scenario is realised in the sequence diagram in \figref{fig:ticket-in-success}. The two scenarios is one where the driver wants to pay with credit card and one where he wants to pay with cash. The alternative scenario where a driver wants to pay with credit card but the payment fails is shown in \figref{fig:ticket-in-fail}
+\begin{mylandscapefigure}{Sequence_Diagram/TicketCheckIn-Succes}
+\caption{Success scenario for the Ticket Check-in use case. \madeby{\kj}{\mt}}
+\label{fig:ticket-in-success}
+\end{mylandscapefigure}
+
+\begin{mylandscapefigure}{Sequence_Diagram/TicketCheckIn-Fail}
+\caption{Alternative scenario for the Ticket Check-in use case. \madeby{\kj}{\mt}}
+\label{fig:ticket-in-fail}
+\end{mylandscapefigure}
+
+
+
+\subsection{Check-out with Ticket}
+\madeby{\jb}{\af}
+The Ticket Check-out use case main scenario is shown in \figref{fig:ticket-out-success}. An alternative scenario where the ticket is invalid is shown in \figref{fig:ticket-out-fail}
+\begin{mylandscapefigure}{Sequence_Diagram/TicketCheckOut-Success}
+\caption{Main scenario for the Ticket Check-out use case. \madeby{\jb}{\af}}
+\label{fig:ticket-out-success}
+\end{mylandscapefigure}
+
+\begin{mylandscapefigure}{Sequence_Diagram/TicketCheckOut-Faillure}
+\caption{Alternative scenario for the Ticket Check-out use case. \madeby{\jb}{\af}}
+\label{fig:ticket-out-fail}
+\end{mylandscapefigure}
+
+
+
+\subsection{Generate Enterprise Report}
+\madeby{\mb}{\kj}
+
+The Generate Enterprise Report use case is realised in \figref{fig:enterprisereport} and \figref{fig:stationreport}. The alternative scenario happens in \figref{fig:enterprisereport} where it is impossible to reach some stations, so a failure entry is added to the enterprise report.
+
+\begin{mylandscapefigure}{Sequence_Diagram/GenerateReports}
+\caption{Generation of enterprise report use case. Refers to \figref{fig:stationreport}. \madeby{\mb}{\kj}}
+\label{fig:enterprisereport}
+\end{mylandscapefigure}
+
+\begin{myfigure}{Sequence_Diagram/GenerateStationReport}{1}
+\caption{Generation of reports of individual stations. Referred to from \figref{fig:enterprisereport}. \madeby{\mb}{\kj}}
+\label{fig:stationreport}
+\end{myfigure}
+

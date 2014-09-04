@@ -1,0 +1,55 @@
+\documentclass[10pt,a4paper]{report}
+\newcommand{\confdir}{../conf/} % Set the folder which contains preamble.tex, titlepage.tex and the general img/ folder
+\newcommand{\imgdir}{img/} % Set the folder which contains the specific images for the report
+\newcommand{\texdir}{tex/} % Set the folder which contains the content (.tex files)
+\input{\confdir preamble}
+
+
+%%%%%%%%%%%
+%% SETUP %%
+%%%%%%%%%%%
+
+%% Set the course number and course name
+% Usage: \setcourse{<course no>}{<course name>}
+	\setcourse{02291}{System Integration}
+
+%% Set the title of the report
+% Usage: \settitle{<title>}
+	\settitle{Examination Project}
+
+%% Set the subtitle of the report
+% Usage: \setsubtitle{<subtitle>}
+	\setsubtitle{Toll System}
+
+%% Set the date the report is handed in
+% Usage: \setdate{<hand-in date>}
+	\setdate{May 16th 2013}
+
+%% Add the authors of the report
+% Usage: \addauthor{<study number>}{<first name(s)>}{<last name>}
+	\addauthor{s093255}{Mikkel Riber}{Bojsen}
+	\addauthor{s093251}{Johan van}{Beusekom}
+	\addauthor{s093285}{Andreas}{Foldager}
+	\addauthor{s112461}{Kasper Aaquist}{Johansen}
+	\addauthor{s093280}{Martin Kasban}{Tange}
+
+%%%% END OF SETUP
+
+
+\begin{document}
+
+%% Insert titlepage
+\inserttitlepage
+
+%% Insert table-of-contents
+\inserttoc
+
+%% Input files for the report
+\import{\texdir}{introduction}
+\import{\texdir}{requirements}
+\import{\texdir}{acceptance_tests}
+\import{\texdir}{design}
+\import{\texdir}{validation}
+\import{\texdir}{conclusion}
+
+\end{document}

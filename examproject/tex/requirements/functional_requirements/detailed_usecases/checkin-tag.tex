@@ -1,0 +1,67 @@
+\begin{usecase}
+
+\addtitle{Use Case:}{Check-in tag\madeby{\mt}{\jb}} 
+
+%Scope: the system under design
+%\addfield{Scope:}{System-wide}
+
+%Level: "user-goal" or "subfunction"
+\addfield{Description:}{A driver wants to check-in with his vehicle with a toll tag.}
+
+%Primary Actor: Calls on the system to deliver its services.
+\addfield{Actor:}{Driver, Cashier}
+
+%Stakeholders and Interests: Who cares about this use case and what do they want?
+%\additemizedfield{Stakeholders and Interests:}{
+%	\item Stakeholder 1 name: his interests
+%	\item Stakeholder 2 name: his interests
+%}
+
+%Preconditions: What must be true on start and worth telling the reader?
+\addfield{Preconditions:}{The driver has a toll tag in his vehicle.}
+%when multiple
+%\additemizedfield{Preconditions:}{} 
+
+%Main Success Scenario: A typical, unconditional happy path scenario of success.
+\addscenario{Main Scenario:}{
+	\item The driver enters the express lane
+	\item The lane antenna recognises the toll tag.
+	\item The toll lane reports a check-in to the toll station.
+	\item The toll station replies with a check-in success.
+	\item The toll lane lifts the barrier and the driver enters the motorway.
+}
+
+%Extensions: Alternate scenarios of success or failure.
+\addscenario{Alternative Scenario:}{
+	\item[2.a] The antenna does not recognise the toll tag:
+		\begin{enumerate}
+		\item[1.] The check-in fails and a cashier is summoned.
+		\item[2.] The cashier resolves the issue as it sees fit.
+		\end{enumerate}
+
+	\item[4.a] The toll station replies with a check-in failure.
+		\begin{enumerate}
+		\item[1.] The check-in fails and a cashier is summoned.
+		\item[2.] The cashier resolves the issue as it sees fit.
+		\end{enumerate}	
+}
+
+%Special Requirements: Related non-functional requirements.
+%\additemizedfield{Special Requirements:}{
+%	\item first applicable non-functional requirement
+%	\item second applicable non-functional requirement
+%}
+
+%Postconditions: What must be true on successful completion and worth telling the reader
+\addfield{Postconditions:}{The driver has entered the motorway.}
+%when multiple
+%\additemizedfield{Preconditions:}{}
+
+
+%Frequency of Occurrence: Influences investigation, testing and timing of implementation.
+%\addfield{Notes:}{}
+
+%Miscellaneous: Such as open issues/questions
+%\addfield{Open Issues:}{}
+
+\end{usecase}

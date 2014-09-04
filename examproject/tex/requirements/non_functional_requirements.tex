@@ -1,0 +1,47 @@
+\section{Non functional requirements}
+\label{sec:non-func}
+\madeby{\jb}{\mb}
+This section provides a list of non-functional requirements we have derived based on the description of the Toll system combined with some assumptions about the business case for creating the Toll System.
+The system contains three tiers: Toll lanes, toll stations and a enterprise tier. 
+
+\subsection{Toll lane}
+Each toll lane consist of a number of hardware components based on which type of toll lane it is.
+
+\subsubsection*{All lanes}
+All lanes consists of the following hardware components:
+
+\begin{itemize}
+\item A toll lane computer
+\item A barrier
+\end{itemize}
+
+\subsubsection*{Check-in Lane}
+A normal check-in lane must have the following hardware components:
+
+\begin{itemize}
+\item Touchscreen for drivers to interact with the system
+\item A cash register for accepting cash payments
+\item A ticket printer
+\item A credit card reader for accepting credit card payments
+\end{itemize}
+
+\subsubsection*{Check-out Lane}
+A normal check-out lane must have the following hardware components.
+
+\begin{itemize}
+\item Ticket reader to validate check-outs
+\end{itemize}
+
+\subsubsection*{Express Lane}
+An express lane must have the following components.
+
+\begin{itemize}
+\item An Antenna to wirelessly read toll tags
+\end{itemize}
+
+\subsection{Toll station}
+Each toll station consists of a number of check-in and check-out lanes. These are either express lanes or normal lanes.
+
+\subsection{Enterprise}
+The enterprise consists of a number of toll stations which are connected to the enterprise. The enterprise server is connected to the internet via a web server.
+

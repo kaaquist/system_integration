@@ -1,0 +1,5 @@
+Station
+		checkOut(tag)	{post: enterprise^checkOut(tag)}
+		checkIn(tag)	{post: enterprise^checkIn(tag)}
+		notifyCashier() 
+		generateReports(period) {post: lanes->forall ( lane | result->includesAll( lane.generateReport(period))) } 

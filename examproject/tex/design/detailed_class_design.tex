@@ -1,0 +1,203 @@
+\section{Class Design}
+\madeby{\jb}{\mt} This section describes in details how the components are realised in classes as well as the behaviour of these classes. We do not explicitly implement interfaces to hardware that is not needed in other contexts, such as the antenna.
+
+\subsection{Class Diagrams}
+This section shows how components are realised as classes and how they implement the required interfaces. 
+
+\subsubsection{Major components}
+\figref{fig:class-class} shows how the major components are implemented. Tolltag is refined in \figref{fig:class-tolltag}. The Toll lane is refined in \figref{fig:class-lane}.
+\begin{mylandscapefigure}{Class_Diagram/Class_Diagram}
+\caption{Class Model of major components.\madeby{\af}{\mb}}
+\label{fig:class-class}
+\end{mylandscapefigure}
+
+
+
+%\begin{myfigure}{Class_Diagram/Domain_Diagram}{1}
+%\caption{}
+%\end{myfigure}
+\subsubsection{TollLane}
+In \figref{fig:class-lane} we show how toll lanes implement interfaces as well as the hierarchy of lanes. We also show how lanes refer to their required interfaces. Lanepasses are refined in \figref{fig:class-lanepass}.
+\begin{mylandscapefigure}{Class_Diagram/Lane+Peripherals}
+\caption{Class Model of the TollLane.\madeby{\af}{\kj}}
+\label{fig:class-lane}
+\end{mylandscapefigure}
+
+\subsubsection{Lanepass}
+In \figref{fig:class-lanepass} we show how lanepasses are modelled. This heirarchy is used in Toll tags and Toll lanes.
+
+\begin{myfigure}{Class_Diagram/Lanepass}{1}
+\caption{Class Model of the Lanepass.\madeby{\jb}{\mb}}
+\label{fig:class-lanepass}
+\end{myfigure}
+
+\subsubsection{TollTag}
+In \figref{fig:class-tolltag} we show how the TollTag is modelled.
+\begin{myfigure}{Class_Diagram/TollTag}{1}
+\caption{Class Model of TollTag\madeby{\mb}{\mt}}
+\label{fig:class-tolltag}
+\end{myfigure}
+
+\subsubsection{DataTypes}
+In \figref{fig:class-data} we show how the datatypes that does not fit anywhere else are modelled.
+
+\begin{myfigure}{Class_Diagram/DataTypes}{1}
+\caption{Class Model of Datatypes\madeby{\af}{\kj}}
+\label{fig:class-data}
+\end{myfigure}
+
+
+
+%\begin{myfigure}{Class_Diagram/Systems_Users}{1}
+%\caption{}
+%\end{myfigure}
+
+\subsection{Object Constraint Language}
+\madeby{\af}{\mb}
+\figref{fig:OCLTollTag} shows class invariants and non-trivial operations for the CheckInLane using OCL constraints.
+\begin{description}
+\item [checkIn:]If a check-in with a tag is performed, when the tag is already checked in, the check in fails and no check-in gets associated with the Toll Tag. If the check-in is performed and the tag is not already checked in, the check-in succeeds and gets assosiated with the Toll Tag.
+\item [checkOut:]If a check-out with a tag is performed, but the tag was not checked in, the check-out fails and no changes are made.
+If a check-in is performed with a tag and the tag was checked in, the check-out succeeds and a trip is stored by TollTag.
+\end{description}
+
+
+\begin{myfigure}{Class_Diagram/OCLTollTag}{1}
+\caption{OCL for TollTag\madeby{\kj}{\mb}}
+\label{fig:OCLTollTag}
+\end{myfigure}
+
+\figref{fig:OCLEnterpriseServer} shows class invariants and non-trivial operations for the CheckInLane using OCL constraints.
+
+\begin{description}
+\item [checkIn and checkOut]When checkIn or checkOut with a tag gets called on the EnterpriseServer, it finds the tag from it's stored tags and performs a checkIn or a checkOut respectively.
+\item [compileReport:]The enterpriseReport must contain some result from all stations. It must also be the case that if a report exists for a station, it must be identical to the result of generating a report from that station. If no report from the station exists, it must be contained in the list of failed stations.
+\end{description}
+
+
+\begin{myfigure}{Class_Diagram/OCLEnterpriseServer}{1}
+\caption{OCL for EnterpriseServer\madeby{\af}{\mt} }
+\label{fig:OCLEnterpriseServer}
+\end{myfigure}
+
+
+\figref{fig:OCLStation} shows class invariants and non-trivial operations for the CheckInLane using OCL constraints.
+
+\begin{description}
+\item [checkIn and checkOut:] When a checkOut or a checkIn with a tag is performed on the Station, it sends the checkOut or checkIn to EnterpriseServer.
+\item [compileReport:] When a station compiles a report it must be the case that the result of getting a report from all lanes must be contained in the station result. It must also be the case that all passes in the station report must exist in some lane.
+\end{description}
+
+\begin{myfigure}{Class_Diagram/OCLStation}{1}
+\caption{OCL for Station\madeby{\jb}{\mb}}
+\label{fig:OCLStation}
+\end{myfigure}
+
+
+\figref{fig:OCLTollLane} shows class invariants and non-trivial operations for the CheckInLane using OCL constraints.
+
+\begin{description}
+\item [logIn and logOut:] To be able to log in on the TollLane, the user should not already be logged in, the opposite goes for users who want to log out.
+\item [generateReport:] When a TollLane is queried to generate a report, all Lane Passes that are inside the given time interval are included in the result, and all Lane Passes in the result are actual Lane Passes known by the Toll Lane.
+\end{description}
+
+
+\begin{myfigure}{Class_Diagram/OCLTollLane}{1}
+\caption{OCL for TollLane\madeby{\af}{\kj}}
+\label{fig:OCLTollLane}
+\end{myfigure}
+
+
+
+\figref{fig:OCLCheckInLane} shows class invariants and non-trivial operations for the CheckInLane using OCL constraints.
+
+\begin{description}
+\item [payWithCC:]When a driver pays with credit card, the credit card reader handles the payment, and if this is succesful, a new LanePass is instantiated and stored by the Lane.
+
+\item [payWithCash:]When a driver pays with cash and has enough money and a new LanePass is instantiated and stored by the Lane.
+
+\item [selectType:]The selected type of vehicle that the CheckInLane stores, is selected on the touch screen that is assosiated with the lane.
+
+\item [tagArrives]When a tag arrives, the post condition states that if a lanepass was added all previous lane passes must still be present. It must always be the case that a request to check in a tag has been sent to the station.
+
+\item [manualCheckIn]When a manual check-in is performed, the size of the set of Lane Passes stored by the CheckInLane is incremented by one and includes all the previous elements and a new Lane Pass.
+\end{description}
+
+\begin{myfigure}{Class_Diagram/OCLCheckInLane}{1}
+\caption{OCL for CheckInLane \madeby{\jb}{\mt}}
+\label{fig:OCLCheckInLane}
+\end{myfigure}
+
+\figref{fig:OCLCheckOutLane} shows class invariants and non-trivial operations for the CheckInLane using OCL constraints.
+
+\begin{description}
+\item [ticketRead:]When a ticket check-out is performed, the CheckOutLane verifies that ticket is valid. If that is the case, the barrier is opened and a new Lane Pass is added to the Lanes set of Lane Passes. If the ticket is not valid, a cashier is notified.
+\item [tagArrives:]When a check-out with a tag is performed, the size of the stored Lane Passes is checked to have incremented by one in size. If this check fails, a cashier must have been notified otherwise it must be the case that all previous passes are still stored along with the new one.
+\item [manualCheckOut]When a manual check-out is performed, the size of the set of Lane Passes stored by the CheckOutLane is incremented by one and includes all the previous elements and a new Lane Pass.
+\end{description}
+
+\begin{myfigure}{Class_Diagram/OCLCheckOutLane}{1}
+\caption{OCL for CheckOutLane \madeby{\af}{\mb}}
+\label{fig:OCLCheckOutLane}
+\end{myfigure}
+
+\figref{fig:OCLEnterpriseReport} shows post-conditions for non-trivial operations for the EnterpriseReport using OCL constraints.
+
+\begin{description}
+\item [addStation:] When a station and a report is added, it must be the case that the station and report is linked in the map of the enterprisereport.
+\item [getStations:] The result of this operation must be the union of all failed stations and report stations added.
+\item [addFailedStation:] The result of this operation must be that the station is added to the list of failed stations without removing any of the existing stations.
+\end{description}
+
+
+\begin{myfigure}{Class_Diagram/OCLEnterpriseReport}{1}
+\caption{OCL for EnterpriseReport\madeby{\kj}{\mt}}
+\label{fig:OCLEnterpriseReport}
+\end{myfigure}
+
+\figref{fig:OCLStationReport} shows post-conditions for non-trivial operations for the StationReport using OCL constraints.
+
+\begin{description}
+\item [addLanePasses:] It must be the case that all lane passes in the argument is added to the list of lanepasses without removing any of the existing lane passes.
+\end{description}
+
+\begin{myfigure}{Class_Diagram/OCLStationReport}{1}
+\caption{OCL for StationReport\madeby{\mb}{\mt}}
+\label{fig:OCLStationReport}
+\end{myfigure}
+
+\figref{fig:OCLPeriod} shows the OCL constraints for the Period data type.
+
+
+\begin{myfigure}{Class_Diagram/OCLPeriod}{0.6}
+\caption{OCL for Period \madeby{\kj}{\jb}}
+\label{fig:OCLPeriod}
+\end{myfigure}
+
+
+
+
+
+
+
+
+
+\subsection{Class Descriptions}
+
+\subimport{classes/}{toll_tag}
+\subimport{classes/}{trip}
+\subimport{classes/}{enterprise_server}
+\subimport{classes/}{station}
+\subimport{classes/}{tolllane}
+\subimport{classes/}{tolltaqowner}
+\subimport{classes/}{vehicletype}
+\subimport{classes/}{lanepass}
+\subimport{classes/}{checkin_lane}
+\subimport{classes/}{checkout_lane}
+\subimport{classes/}{tag_check_in}
+\subimport{classes/}{tag_check_out}
+\subimport{classes/}{enterprise_report}
+\subimport{classes/}{station_report}
+\subimport{classes/}{location}
+\subimport{classes/}{ticket}
+\subimport{classes/}{period}

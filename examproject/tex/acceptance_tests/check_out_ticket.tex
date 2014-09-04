@@ -1,0 +1,29 @@
+
+\noindent Use case "Check-out Ticket" success scenario
+\madeby{\jb}{\af}
+
+\vspace{0.4cm}
+\begin{tabular}{| p{2cm} | p{5.5cm} | p{5.5cm} |} \hline
+\multicolumn{3}{|l|}{ActionFixture} \\ \hline
+start & \multicolumn{2}{|l|}{Driver} \\ \hline
+enter & Ticket & ticket \\ \hline
+check & Valid ticket & true \\ \hline
+check & Barrier Open & true \\ \hline
+\end{tabular}
+\vspace{0.8cm}
+
+
+\noindent Use case "Check-out Ticket" Invalid ticket scenario
+\madeby{\jb}{\af}
+
+\vspace{0.4cm}
+\begin{tabular}{| p{2cm} | p{5.5cm} | p{5.5cm} |} \hline
+\multicolumn{3}{|l|}{ActionFixture} \\ \hline
+start & \multicolumn{2}{|l|}{Driver} \\ \hline
+enter & Ticket & ticket \\ \hline
+check & Valid ticket & false \\ \hline
+press & \multicolumn{2}{|l|}{Notify cashier} \\ \hline
+check & Problem resolved & true \\ \hline
+check & Barrier Open & true \\ \hline
+\end{tabular}
+\vspace{0.8cm}

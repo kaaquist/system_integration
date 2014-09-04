@@ -1,0 +1,105 @@
+\section{Behaviour Design}
+This section describes the object life cycle state machines for non-trivial objects. For each state machine we provide an overview of any orthogonal states as well as an informal description of how it works.
+
+\subsection{EnterpriseServer}
+\madeby{\mb}{\af}
+Figure \ref{fig:OLCSM_Enterprise} shows the life-cycle state machine of the Enterprise object. The state machine has two orthogonal sub-states.
+
+\begin{description}
+	
+	\item[Handle tags] This sub-state handles check-ins and check-outs. The state machine is idle until a check-in or a check-out request arrives. When either of these transitions is fired, the state machine goes to a state where it checks the check-in or check-out and returns to the idle state by either retuning a success if the check-in/check-out succeed or a failure if the check-in/check-out failed.
+	\item[Generate report] This state is idle until a generate report event triggers the transition that starts the compilation of a report before going back to being idle.
+	
+\end{description}
+
+\begin{myfigure}{State_Machine_Diagram/Enterprise}{1}
+\caption{Object Life Cycle State Machine Enterprise. \madeby{\af}{\mb}}
+\label{fig:OLCSM_Enterprise}
+\end{myfigure}
+
+\subsection{Station}
+\madeby{\jb}{\mt}
+Figure \ref{fig:OLCSM_Station} shows the life-cycle state machine of the Station object. The state machine only has one state, from which there are four transitions to itself.
+
+\begin{description}
+	\item[Check-in and check-out] can be made and returns the value of the correponding call to the enterprise.
+	\item[Generate report] generates report event triggers the transition that starts the compilation of a report before going back to being idle.
+	\item[Notify cashier] sends a notification to a cashier when something is wrong.
+\end{description}
+
+
+\begin{myfigure}{State_Machine_Diagram/Station}{1}
+\caption{Object Life Cycle State Machine Station. \madeby{\jb}{\mt}}
+\label{fig:OLCSM_Station}
+
+\end{myfigure}
+
+\subsection{CheckInLane}
+\madeby{\jb}{\mt}
+Figure \ref{fig:OLCSM_CheckInLane} shows the life-cycle state machine of the CheckInLane object. The state machine has two orthogonal sub-states.
+
+\begin{description}
+  \item[Driver triggered] :
+	
+	  \begin{description}	
+		\item[Ticket check-in] When the state machine is in the ready state, and a driver enters his vehicle type on the touch-screen, he is brought to a state where he is informed about the price and can choose to pay with either cash or credit. After paying, the state machine goes to a state where it checks the payment. Failing from this state brings the state machine back to the previous state where the driver can try to pay once again. 
+\\If a cashier is not logged in to the lane and a credit card payment fails, a cashier is notified, and the state machine goes to a state where it waits for the cashier to log in, before proceeding with the payment.
+\\Once the payment has succeeded, the state machine goes to a state where the payment is ok. After this, the printer will try to print a ticket, and if this succeeds, a ticket is issued and the barrier opens. If it fails, a cashier is summoned and performs a manual check-in.
+	
+	\item[Tag check-in] When a tag arrives, the state machine goes to a state where it verifies the tag. If this succeeds, the barrier opens and the state machine return to the ready state. If it fails, a cashier is summoned and performs a manual check-in.
+	
+	\end{description}
+	
+  \item[Cashier triggered] :
+	
+	\begin{description}
+	
+	\item[Login] A cashier can log in, if he is not already logged in.
+	
+	\item[Logout] A cashier can log out, if he is not already logged out.
+	
+	\item[Generate report] returns the lane passes of the lane for the given time period and goes back to the idle state.
+	
+	\end{description}
+\end{description}
+
+\begin{myfigure}{State_Machine_Diagram/CheckInLane}{1}
+\caption{Object Life Cycle State Machine CheckInLane. \madeby{\jb}{\mt}}
+\label{fig:OLCSM_CheckInLane}
+
+\end{myfigure}
+
+\subsection{CheckOutLane}
+\madeby{\kj}{\af}
+Figure \ref{fig:OLCSM_CheckOutLane} shows the life-cycle state machine of the CheckInLane object. The state machine has two orthogonal sub-states.
+
+\begin{description}
+	\item[Tag arrive] when a tag or ticket arrives, the state machine goes to verification state. If the verification is succesful, the barrier is opened and the state machine returns to initial state. If the verification is unsuccesful, a notifyCashier transition brings the state machine to a state where it waits for a cashier. After the cashier has arrived, it performs a manual check-out, thereby bringing the state machine back to the initial state.
+	\item[Generate report] generates report event triggers the transition that returns the lane passes of the check-out lane before going back to being idle.
+\end{description}
+
+
+\begin{myfigure}{State_Machine_Diagram/CheckOutLane}{1}
+\caption{Object Life Cycle State Machine CheckOutLane. \madeby{\kj}{\af}}
+\label{fig:OLCSM_CheckOutLane}
+
+\end{myfigure}
+
+\subsection{TollTag}
+\madebyone{\mb}
+Figure \ref{fig:OLCSM_TollTag} shows the life-cycle state machine of the TollTag object.
+
+\begin{description}
+
+	\item[Check-in] From the idle state, a check-in transition brings the state machine to a state where it checks in the tag. Depending on the result of the check-in, the state machines returns to the idle state with a succesful or unsuccesful check-in.
+	
+	\item[Check-out] Similarly to the check-in, a check-out transition brings the state machine to a state where it checks out the tag. Depending on the result of the check-out, the state machines returns to the idle state with a succesful or unsuccesful check-out.
+	
+\end{description}
+	
+
+\begin{myfigure}{State_Machine_Diagram/TollTag}{1}
+\caption{Object Life Cycle State Machine TollTag.\madebyone{\mb}}
+\label{fig:OLCSM_TollTag}
+
+\end{myfigure}

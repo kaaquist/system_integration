@@ -1,0 +1,60 @@
+\begin{usecase}
+
+\addtitle{Use Case:}{Generate Reports\madeby{\mb}{\kj}} 
+
+%Scope: the system under design
+%\addfield{Scope:}{System-wide}
+
+%Level: "user-goal" or "subfunction"
+\addfield{Description:}{An Enterprise Manager wants to generate reports with statistics on, types of vehicles that have made check-in/check-out, single ticket usages, toll tag usages in a freely definable time period.}
+
+%Primary Actor: Calls on the system to deliver its services.
+\addfield{Actor:}{Enterprise Manager}
+
+%Stakeholders and Interests: Who cares about this use case and what do they want?
+%\additemizedfield{Stakeholders and Interests:}{
+%	\item Stakeholder 1 name: his interests
+%	\item Stakeholder 2 name: his interests
+%}
+
+%Preconditions: What must be true on start and worth telling the reader?
+\addfield{Preconditions:}{The Enterprise Manager is logged on the enterprise client.}
+%when multiple
+%\additemizedfield{Preconditions:}{} 
+
+%Main Success Scenario: A typical, unconditional happy path scenario of success.
+\addscenario{Main Scenario:}{
+	\item The Enterprise Manager query a report in a given time period.
+	\item The Enterprise client gathers information for the report from station clients.
+	\item The Enterprise Manager can see the report on his/her computer screen.
+}
+
+%Extensions: Alternate scenarios of success or failure.
+\addscenario{Alternative Scenario:}{
+	\item[2.a] Connection fail to Station clients while requesting query from all Station Servers.:
+		\begin{enumerate}
+		\item[1.] The Enterprise Manager query a report in a given time period.
+		\item[2.] The Enterprise Manager can see the report on his/her computer screen, the report dose not include data from Station Servers that could not be reached.
+		\item[3.] The Enterprise Manager can see on his/her computer screen which Station Server that where not included in the statistics. 
+		\end{enumerate}
+}
+
+%Special Requirements: Related non-functional requirements.
+%\additemizedfield{Special Requirements:}{
+%	\item first applicable non-functional requirement
+%	\item second applicable non-functional requirement
+%}
+
+%Postconditions: What must be true on successful completion and worth telling the reader
+\addfield{Postconditions:}{}
+%when multiple
+%\additemizedfield{Preconditions:}{}
+
+
+%Frequency of Occurrence: Influences investigation, testing and timing of implementation.
+%\addfield{Notes:}{}
+
+%Miscellaneous: Such as open issues/questions
+%\addfield{Open Issues:}{}
+
+\end{usecase}

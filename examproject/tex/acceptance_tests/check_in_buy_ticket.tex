@@ -1,0 +1,52 @@
+
+\noindent Use case "Check-in Buy Ticket Cash" success scenario
+\madeby{\kj}{\mt}
+
+\vspace{0.4cm}
+\begin{tabular}{| p{2cm} | p{5.5cm} | p{5.5cm} |} \hline
+\multicolumn{3}{|l|}{ActionFixture} \\ \hline
+start & \multicolumn{2}{|l|}{Driver} \\ \hline
+press & \multicolumn{2}{|l|}{Car} \\ \hline
+check & Price & 10 kr. \\ \hline
+press & \multicolumn{2}{|l|}{Cash} \\ \hline
+enter & Cash & 10 kr. \\ \hline
+check & Ticket Received & true \\ \hline
+check & Barrier Open & true \\ \hline
+\end{tabular}
+\vspace{0.8cm}
+
+\noindent Use case "Check-in Buy Ticket Credit Card" success scenario
+\madeby{\kj}{\mt}
+
+\vspace{0.4cm}
+\begin{tabular}{| p{2cm} | p{5.5cm} | p{5.5cm} |} \hline
+\multicolumn{3}{|l|}{ActionFixture} \\ \hline
+start & \multicolumn{2}{|l|}{Driver} \\ \hline
+press & \multicolumn{2}{|l|}{Car} \\ \hline
+check & Price & 10 kr. \\ \hline
+press & \multicolumn{2}{|l|}{Credit Card} \\ \hline
+enter & Credit Card Pin Code & 1234 \\ \hline
+check & Credit Card verified & true \\ \hline
+check & Ticket Received & true \\ \hline
+check & Barrier Open & true \\ \hline
+\end{tabular}
+\vspace{0.8cm}
+
+\noindent Alternative scenario: Use case "Check-in Buy Ticket Credit Card" verify failure
+\madeby{\kj}{\mt}
+
+\vspace{0.4cm}
+\begin{tabular}{| p{2cm} | p{5.5cm} | p{5.5cm} |} \hline
+\multicolumn{3}{|l|}{ActionFixture} \\ \hline
+start & \multicolumn{2}{|l|}{Driver} \\ \hline
+press & \multicolumn{2}{|l|}{Car} \\ \hline
+check & Price & 10 kr. \\ \hline
+press & \multicolumn{2}{|l|}{Credit Card} \\ \hline
+enter & Credit Card Pin Code & 41225 \\ \hline
+check & Credit Card verified & false \\ \hline
+press & \multicolumn{2}{|l|}{Notify Cashier} \\ \hline
+check & Problem Resolved & true \\ \hline
+check & Ticket Received & true \\ \hline
+check & Barrier Open & true \\ \hline
+\end{tabular}
+\vspace{0.8cm}

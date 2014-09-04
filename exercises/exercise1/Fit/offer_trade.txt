@@ -1,0 +1,35 @@
+!contents -R2 -g -p -f -h
+
+Use case "Offer Trade" success scenario
+
+|ActionFixture              |
+|start|Player        |      |
+|check|Inventory     |Bottle|
+|enter|offer trade   |Bottle|
+|check|get offer back|true  |
+|enter|get offer     |Torch |
+|enter|confirm trade |true  |
+|check|Inventory     |Torch |
+|check|error message |      |
+
+Alternative scenario 2a: Second player declines the offer
+
+|ActionFixture                      |
+|start|Player        |              |
+|check|Inventory     |Bottle        |
+|enter|offer trade   |Bottle        |
+|check|get offer back|false         |
+|check|error message |offer declined|
+
+Alternative scenario 3a: First player declines the counter offer
+
+|ActionFixture              |
+|start|Player        |      |
+|check|Inventory     |Bottle|
+|enter|offer trade   |Bottle|
+|check|get offer back|true  |
+|enter|get offer     |Torch |
+|enter|confirm trade |false |
+|check|Inventory     |Bottle|
+|check|error message |      |
+

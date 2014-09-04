@@ -1,0 +1,10 @@
+TANGE TODO: 
+
+DONE Beautify CheckInLane Lifecycle 
+DONE TollTag statemachine : Skift 'ok' til 'status'!
+
+(muligt?) Binde state machines til sekvens diagramer (events!)
+
+Læg alle administrative use cases ind i et diagram
+Beautify Check-in (use case diagrams)
+Beautify GenerateReports (sekvens diagram)

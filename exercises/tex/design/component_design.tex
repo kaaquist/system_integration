@@ -1,0 +1,44 @@
+\section{Component Design}
+In this section, we provide an overview of the Component Diagram for the system. We first show the component design and then we provide five state machine diagrams showing the port protocol used between the components.
+
+\begin{myfigure}{Component_Diagram}{.9}%
+	\caption{Component Diagram of the MUD game}
+	\label{fig:component-diagram}
+\end{myfigure}
+
+The above diagram shows the Component diagram and the interfaces for the MUD game. All the ports a described using a state machine. These diagrams are shown below.
+
+\begin{myfigure}{ServerPort}{.9}%
+	\caption{State machine for the Server port}
+	\label{fig:server-port}
+\end{myfigure}
+
+The Server port shows the messages send when a Player tries to logon to the Server. If the player is not authenticated, meaning wrong password is provided or username is incorrect, the player will stay in the \emph{Logged Out} sate. If authentication is ok the player will move to state \emph{Logged In}.
+
+\begin{myfigure}{GamePort}{.9}%
+	\caption{State machine for the Game port}
+	\label{fig:game-port}
+\end{myfigure}
+
+When the player has logged in he will be in the \emph{Character} state choosing either \emph{deleteCharacter}, \emph{loadCharacter} or \emph{createCharacter} letting him move to the next state. If \emph{createCharacter} is chosen and it succeed the next state is \emph{Character Created} and from here he is moved to the \emph{In Game} state. If he choses to \emph{loadCharacter} and it succeed the next state is \emph{In Game} too.
+
+\begin{myfigure}{ProfilePort}{.9}%
+	\caption{State machine for the Profile port}
+	\label{fig:profile-port}
+\end{myfigure}
+
+When the player has loaded a character the \emph{Profile} for the character is loaded. The profile enables the character to use specific actions. The \emph{updateInventory} action make sure that the inventory is updated whenever a trade has been done etc.
+
+\begin{myfigure}{RoomPort}{.9}%
+	\caption{State machine for the Room port}
+	\label{fig:room-port}
+\end{myfigure}
+
+When the player has chosen a character and it has been loaded successfully, then the player will have entered the \emph{In Game} state. In the MUD game each character will move from room to room and when the character is in the room a set of actions will be available depending on the other characters, if any, there is in the room. And also if the are Items that can be collected from the room etc. 
+
+\begin{myfigure}{ClientPort}{.9}%
+	\caption{State machine for the Client port/Mobile port}
+	\label{fig:client-port}
+\end{myfigure}
+
+The Client Port/ Mobile port shows the stats a player can be in when either using the MUD game or taken a break from it. The above diagrams has shown in more details the stats the player can be in when he has successfully logged in to the server so here it is left out of the description. 

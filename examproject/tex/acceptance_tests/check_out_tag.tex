@@ -1,0 +1,42 @@
+
+\noindent Use case "Check-out Tag" success scenario
+\madeby{\mb}{\af}
+
+\vspace{0.4cm}
+\begin{tabular}{| p{2cm} | p{5.5cm} | p{5.5cm} |} \hline
+\multicolumn{3}{|l|}{ActionFixture} \\ \hline
+start & \multicolumn{2}{|l|}{Driver} \\ \hline
+check & Tag recognized & true \\ \hline
+check & Checked-out & true \\ \hline
+check & Barrier Open & true \\ \hline
+\end{tabular}
+\vspace{0.8cm}
+
+\noindent Use case "Check-out Tag" Tag not recognized scenario
+\madeby{\mb}{\af}
+
+\vspace{0.4cm}
+\begin{tabular}{| p{2cm} | p{5.5cm} | p{5.5cm} |} \hline
+\multicolumn{3}{|l|}{ActionFixture} \\ \hline
+start & \multicolumn{2}{|l|}{Driver} \\ \hline
+check & Tag recognized & false \\ \hline
+press & \multicolumn{2}{|l|}{Notify Cashier} \\ \hline
+check & Problem resolved & true \\ \hline
+check & Barrier Open & true \\ \hline
+\end{tabular}
+\vspace{0.8cm}
+
+\noindent Use case "Check-out Tag" Check-out failed scenario
+\madeby{\mb}{\af}
+
+\vspace{0.4cm}
+\begin{tabular}{| p{2cm} | p{5.5cm} | p{5.5cm} |} \hline
+\multicolumn{3}{|l|}{ActionFixture} \\ \hline
+start & \multicolumn{2}{|l|}{Driver} \\ \hline
+check & Tag recognized & true \\ \hline
+check & Checked-out & false \\ \hline
+press & \multicolumn{2}{|l|}{Notify Cashier} \\ \hline
+check & Problem resolved & true \\ \hline
+check & Barrier Open & true \\ \hline
+\end{tabular}
+\vspace{0.8cm}

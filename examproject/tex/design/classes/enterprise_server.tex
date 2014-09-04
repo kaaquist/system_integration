@@ -1,0 +1,39 @@
+\begin{table}[H]
+
+\resizebox{\textwidth}{!} {
+
+\begin{tabular}{| l | l | l | l |}
+\hline
+\multicolumn{4}{| l |}{\textbf{Enterprise Server}} \\ \hline
+\multicolumn{4}{| p{1.1\textwidth} |}{The server highest in the hierarchy, enabling it to communicate with all \texttt{Stations} contained in the Toll System. It will contain all Toll Tags that has been registered in the system, and is responsible for handling all LanePass which a Toll Tag is involved in. }  \\
+
+
+
+\hhline{====}
+\textbf{Interaction} & \textbf{Class}  & \multicolumn{2}{ p{0.65\textwidth} |}{\textbf{Description}} \\ \hline
+ tags  & TollTags & \multicolumn{2}{p{0.65\textwidth} |}{A map containing the TollTag corresponding to every tagId registered in the system. Enable the system to get a fast response time whenever a TollTag tries to either check-in or check-out. } \\ \hline 
+
+ stations  & EnterpriseToStation & \multicolumn{2}{p{0.65\textwidth} |}{The interface responsible for all communication from the Enterprise to any Station} \\ \hline 
+
+% {Interaction}  & {Class} & \multicolumn{2}{p{0.65\textwidth} |}{Description} \\ \hline 
+% {Interaction}  & {Class} & \multicolumn{2}{p{0.65\textwidth} |}{Description} \\ \hline 
+% {Interaction}  & {Class} & \multicolumn{2}{p{0.65\textwidth} |}{Description} \\ \hline 
+% {Interaction}  & {Class} & \multicolumn{2}{p{0.65\textwidth} |}{Description} \\ 
+
+\hhline{====}
+\textbf{Operation} & \textbf{In} & \textbf{Out} & \textbf{Description} \\ \hline
+%{Operation}  & {IN}   & {OUT}   & \multicolumn{1}{p{0.55\textwidth} |}{Description} \\ \hline
+generateReport & Period & \multicolumn{1}{p{0.11\textwidth} |}{Enterprise\-Project} &  \multicolumn{1}{p{0.55\textwidth} |}{Is realised from the implemented interface, and will extract all information needed from the stations in the Toll System} \\ \hline
+checkIn  & TagCheckIn   & Boolean   & \multicolumn{1}{p{0.55\textwidth} |}{Attempts to to create a newly started Trip with the given TagCheckIn. A trip will be created in case it violates no rules, and \textbf{true} will be returned when it is successfully created} \\ \hline
+checkOut  & TagCheckOut   & Boolean   & \multicolumn{1}{p{0.55\textwidth} |}{Will try to end a Trip for a given TagCheckOut. If the trip is successfully stopped, \textbf{true} will be returned. Otherwise \textbf{false} if any problems occur during check-out.} \\ \hline
+compileReport  & Period   & \multicolumn{1}{p{0.11\textwidth} |}{Enterprise\-Project}   & \multicolumn{1}{p{0.55\textwidth} |}{Will compile a final report composed of the results for all the Stations in the Toll System. Any stations that communication failed with will be reported } \\  \hline
+
+
+%{Operation}  & {IN}   & {OUT}   & \multicolumn{1}{p{0.55\textwidth} |}{Description} \\ \hline
+
+\end{tabular}
+}
+\caption{Description of the class Enterprise Server 
+\madeby{\mb}{\mt}}
+\label{tab:class_enterprise_server}
+\end{table}
